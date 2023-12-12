@@ -1,0 +1,39 @@
+node_modules
+.env
+.DS_Store
+.vscode
+.notes
+.tool-versions
+
+#Hardhat files
+cache
+artifacts
+typechain
+coverage
+coverage.json
+contracts-exposed
+2Dos.ignore
+* Decay rates.xlsx
+test/gasTest.test.js
+test/testSR.test.js
+test/stakingRewards.test.js
+test/stakingRewardsPowerFormula.test.js
+contracts/utils/PowerContract.sol
+contracts/StakingRewardsV3.sol
+contracts/libraries/DecayRateLib.sol
+.openzeppelin/*
+
+deployments/localhost
+
+# Forge/Foundry files
+# Compiler files
+forge-cache/
+out/
+
+# Ignores development broadcast logs
+/broadcast
+/broadcast/*/31337/
+/broadcast/**/dry-run/
+
+# Docs
+docs/

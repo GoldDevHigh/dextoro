@@ -1,0 +1,1115 @@
+{
+  "address": "0x04954C023E72153e4319009e481b6f00FD9245C2",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_rewardEscrow",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_supplySchedule",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "EscrowStaked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "EscrowUnstaked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "oldOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnerChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnerNominated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Recovered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardPaid",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newDuration",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardsDurationUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Staked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Unstaked",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "earned",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "escrowedBalanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "exit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getRewardForDuration",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastTimeRewardApplicable",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastUpdateTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "nominateNewOwner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nominatedOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "nonEscrowedBalanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "notifyRewardAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pauseStakingRewards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "periodFinish",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "recoverERC20",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardEscrow",
+      "outputs": [
+        {
+          "internalType": "contract IRewardEscrow",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardPerToken",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardPerTokenStored",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardRate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "rewards",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardsDuration",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_rewardsDuration",
+          "type": "uint256"
+        }
+      ],
+      "name": "setRewardsDuration",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "stake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "stakeEscrow",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "supplySchedule",
+      "outputs": [
+        {
+          "internalType": "contract ISupplySchedule",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpauseStakingRewards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "unstake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "unstakeEscrow",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "userRewardPerTokenPaid",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "b34cde2f747f82e1870dfeb2daaf8700",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_rewardEscrow\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_supplySchedule\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"EscrowStaked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"EscrowUnstaked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"oldOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnerChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnerNominated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Recovered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"RewardPaid\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newDuration\",\"type\":\"uint256\"}],\"name\":\"RewardsDurationUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Staked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Unstaked\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"earned\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"escrowedBalanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"exit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getRewardForDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastTimeRewardApplicable\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastUpdateTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"nominateNewOwner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nominatedOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"nonEscrowedBalanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"notifyRewardAmount\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pauseStakingRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"periodFinish\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenAmount\",\"type\":\"uint256\"}],\"name\":\"recoverERC20\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardEscrow\",\"outputs\":[{\"internalType\":\"contract IRewardEscrow\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardPerToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardPerTokenStored\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"rewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardsDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_rewardsDuration\",\"type\":\"uint256\"}],\"name\":\"setRewardsDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"stake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"stakeEscrow\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"supplySchedule\",\"outputs\":[{\"internalType\":\"contract ISupplySchedule\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpauseStakingRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"unstake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"unstakeEscrow\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"userRewardPerTokenPaid\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"EscrowStaked(address,uint256)\":{\"params\":{\"amount\":\": amount staked\",\"user\":\": owner of escrowed tokens address\"}},\"EscrowUnstaked(address,uint256)\":{\"params\":{\"amount\":\": amount unstaked\",\"user\":\": owner of escrowed tokens address\"}},\"Paused(address)\":{\"details\":\"Emitted when the pause is triggered by `account`.\"},\"Recovered(address,uint256)\":{\"params\":{\"amount\":\": amount of token recovered\",\"token\":\": address of token recovered\"}},\"RewardAdded(uint256)\":{\"params\":{\"reward\":\": amount to be distributed over applicable rewards duration\"}},\"RewardPaid(address,uint256)\":{\"params\":{\"reward\":\": amount of reward token claimed\",\"user\":\": address of user claiming rewards\"}},\"RewardsDurationUpdated(uint256)\":{\"params\":{\"newDuration\":\": denoted in seconds\"}},\"Staked(address,uint256)\":{\"params\":{\"amount\":\": amount staked\",\"user\":\": staker address\"}},\"Unpaused(address)\":{\"details\":\"Emitted when the pause is lifted by `account`.\"},\"Unstaked(address,uint256)\":{\"params\":{\"amount\":\": amount unstaked\",\"user\":\": address of user unstaking\"}}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"params\":{\"account\":\": address of potential staker\"},\"returns\":{\"_0\":\"amount of tokens staked by account\"}},\"constructor\":{\"details\":\"owner set to address that deployed StakingRewards\",\"params\":{\"_rewardEscrow\":\": escrow contract which holds (and may stake) reward tokens\",\"_supplySchedule\":\": handles reward token minting logic\",\"_token\":\": token used for staking and for rewards\"}},\"earned(address)\":{\"params\":{\"account\":\": address of account earned amount is being calculated for\"}},\"escrowedBalanceOf(address)\":{\"params\":{\"account\":\"address to check the escrowed tokens staked\"},\"returns\":{\"_0\":\"amount of escrowed tokens staked\"}},\"getReward()\":{\"details\":\"rewards are escrowed in RewardEscrowupdateReward() called prior to function logic\"},\"getRewardForDuration()\":{\"returns\":{\"_0\":\"rewards for the duration specified by rewardsDuration\"}},\"lastTimeRewardApplicable()\":{\"returns\":{\"_0\":\"timestamp of the last time rewards are applicable\"}},\"nonEscrowedBalanceOf(address)\":{\"params\":{\"account\":\"address to check the non-escrowed tokens staked\"},\"returns\":{\"_0\":\"amount of non-escrowed tokens staked\"}},\"notifyRewardAmount(uint256)\":{\"details\":\"updateReward() called prior to function logic (with zero address)\",\"params\":{\"reward\":\": amount of token to be distributed over a period\"}},\"pauseStakingRewards()\":{\"details\":\"Triggers stopped state\"},\"paused()\":{\"details\":\"Returns true if the contract is paused, and false otherwise.\"},\"recoverERC20(address,uint256)\":{\"params\":{\"tokenAddress\":\": address of token to be recovered\",\"tokenAmount\":\": amount of token to be recovered\"}},\"rewardPerToken()\":{\"returns\":{\"_0\":\"running sum of reward per total tokens staked\"}},\"setRewardsDuration(uint256)\":{\"params\":{\"_rewardsDuration\":\": denoted in seconds\"}},\"stake(uint256)\":{\"details\":\"updateReward() called prior to function logic\",\"params\":{\"amount\":\": amount to stake\"}},\"stakeEscrow(address,uint256)\":{\"details\":\"updateReward() called prior to function logicmsg.sender NOT used (account is used)\",\"params\":{\"account\":\": address which owns token\",\"amount\":\": amount to stake\"}},\"totalSupply()\":{\"details\":\"returns staked tokens which will likely not be equal to total tokens in the contract since reward and staking tokens are the same\",\"returns\":{\"_0\":\"total amount of tokens that are being staked\"}},\"unpauseStakingRewards()\":{\"details\":\"Returns to normal state.\"},\"unstake(uint256)\":{\"details\":\"updateReward() called prior to function logic\",\"params\":{\"amount\":\": amount to unstake\"}},\"unstakeEscrow(address,uint256)\":{\"details\":\"updateReward() called prior to function logicmsg.sender NOT used (account is used)\",\"params\":{\"account\":\": address which owns token\",\"amount\":\": amount to unstake\"}}},\"stateVariables\":{\"balances\":{\"details\":\"this includes escrowed tokens stake\"}},\"title\":\"DTORO Staking Rewards to DexToro\",\"version\":1},\"userdoc\":{\"events\":{\"EscrowStaked(address,uint256)\":{\"notice\":\"emitted when escrow staked\"},\"EscrowUnstaked(address,uint256)\":{\"notice\":\"emitted when staked escrow tokens are unstaked\"},\"Recovered(address,uint256)\":{\"notice\":\"emitted when tokens are recovered from this contract\"},\"RewardAdded(uint256)\":{\"notice\":\"update reward rate\"},\"RewardPaid(address,uint256)\":{\"notice\":\"emitted when user claims rewards\"},\"RewardsDurationUpdated(uint256)\":{\"notice\":\"emitted when rewards duration changes\"},\"Staked(address,uint256)\":{\"notice\":\"emitted when user stakes tokens\"},\"Unstaked(address,uint256)\":{\"notice\":\"emitted when user unstakes tokens\"}},\"kind\":\"user\",\"methods\":{\"constructor\":{\"notice\":\"configure StakingRewards state\"},\"earned(address)\":{\"notice\":\"determine how much reward token an account has earned thus far\"},\"escrowedBalanceOf(address)\":{\"notice\":\"Getter function for number of staked escrow tokens\"},\"exit()\":{\"notice\":\"unstake all available staked non-escrowed tokens and claim any rewards\"},\"getReward()\":{\"notice\":\"caller claims any rewards generated from staking\"},\"lastUpdateTime()\":{\"notice\":\"track last time the rewards were updated\"},\"nonEscrowedBalanceOf(address)\":{\"notice\":\"Getter function for number of staked non-escrow tokens\"},\"notifyRewardAmount(uint256)\":{\"notice\":\"configure reward rate\"},\"periodFinish()\":{\"notice\":\"marks applicable reward period finish time\"},\"recoverERC20(address,uint256)\":{\"notice\":\"added to support recovering LP Rewards from other systems such as BAL to be distributed to holders\"},\"rewardEscrow()\":{\"notice\":\"escrow contract which holds (and may stake) reward tokens\"},\"rewardPerToken()\":{\"notice\":\"calculate running sum of reward per total tokens staked at this specific time\"},\"rewardPerTokenStored()\":{\"notice\":\"summation of rewardRate divided by total staked tokens\"},\"rewardRate()\":{\"notice\":\"amount of tokens minted per second\"},\"rewards(address)\":{\"notice\":\"track rewards for a given user which changes when a user stakes, unstakes, or claims rewards\"},\"rewardsDuration()\":{\"notice\":\"period for rewards\"},\"setRewardsDuration(uint256)\":{\"notice\":\"set rewards duration\"},\"stake(uint256)\":{\"notice\":\"stake token\"},\"stakeEscrow(address,uint256)\":{\"notice\":\"stake escrowed token\"},\"supplySchedule()\":{\"notice\":\"handles reward token minting logic\"},\"token()\":{\"notice\":\"token used for BOTH staking and rewards\"},\"unstake(uint256)\":{\"notice\":\"unstake token\"},\"unstakeEscrow(address,uint256)\":{\"notice\":\"unstake escrowed token\"},\"userRewardPerTokenPaid(address)\":{\"notice\":\"represents the rewardPerToken value the last time the stake calculated earned() rewards\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/StakingRewards.sol\":\"StakingRewards\"},\"evmVersion\":\"paris\",\"libraries\":{\"contracts/libraries/SafeDecimalMath.sol:SafeDecimalMath\":\"0x489aa202a283ded656c17f66e92ee19bddd55d13\"},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/security/Pausable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (security/Pausable.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which allows children to implement an emergency stop\\n * mechanism that can be triggered by an authorized account.\\n *\\n * This module is used through inheritance. It will make available the\\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\\n * the functions of your contract. Note that they will not be pausable by\\n * simply including this module, only once the modifiers are put in place.\\n */\\nabstract contract Pausable is Context {\\n    /**\\n     * @dev Emitted when the pause is triggered by `account`.\\n     */\\n    event Paused(address account);\\n\\n    /**\\n     * @dev Emitted when the pause is lifted by `account`.\\n     */\\n    event Unpaused(address account);\\n\\n    bool private _paused;\\n\\n    /**\\n     * @dev Initializes the contract in unpaused state.\\n     */\\n    constructor() {\\n        _paused = false;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is not paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    modifier whenNotPaused() {\\n        _requireNotPaused();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    modifier whenPaused() {\\n        _requirePaused();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns true if the contract is paused, and false otherwise.\\n     */\\n    function paused() public view virtual returns (bool) {\\n        return _paused;\\n    }\\n\\n    /**\\n     * @dev Throws if the contract is paused.\\n     */\\n    function _requireNotPaused() internal view virtual {\\n        require(!paused(), \\\"Pausable: paused\\\");\\n    }\\n\\n    /**\\n     * @dev Throws if the contract is not paused.\\n     */\\n    function _requirePaused() internal view virtual {\\n        require(paused(), \\\"Pausable: not paused\\\");\\n    }\\n\\n    /**\\n     * @dev Triggers stopped state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    function _pause() internal virtual whenNotPaused {\\n        _paused = true;\\n        emit Paused(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Returns to normal state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    function _unpause() internal virtual whenPaused {\\n        _paused = false;\\n        emit Unpaused(_msgSender());\\n    }\\n}\\n\",\"keccak256\":\"0x0849d93b16c9940beb286a7864ed02724b248b93e0d80ef6355af5ef15c64773\",\"license\":\"MIT\"},\"@openzeppelin/contracts/security/ReentrancyGuard.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.8.0) (security/ReentrancyGuard.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Contract module that helps prevent reentrant calls to a function.\\n *\\n * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier\\n * available, which can be applied to functions to make sure there are no nested\\n * (reentrant) calls to them.\\n *\\n * Note that because there is a single `nonReentrant` guard, functions marked as\\n * `nonReentrant` may not call one another. This can be worked around by making\\n * those functions `private`, and then adding `external` `nonReentrant` entry\\n * points to them.\\n *\\n * TIP: If you would like to learn more about reentrancy and alternative ways\\n * to protect against it, check out our blog post\\n * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].\\n */\\nabstract contract ReentrancyGuard {\\n    // Booleans are more expensive than uint256 or any type that takes up a full\\n    // word because each write operation emits an extra SLOAD to first read the\\n    // slot's contents, replace the bits taken up by the boolean, and then write\\n    // back. This is the compiler's defense against contract upgrades and\\n    // pointer aliasing, and it cannot be disabled.\\n\\n    // The values being non-zero value makes deployment a bit more expensive,\\n    // but in exchange the refund on every call to nonReentrant will be lower in\\n    // amount. Since refunds are capped to a percentage of the total\\n    // transaction's gas, it is best to keep them low in cases like this one, to\\n    // increase the likelihood of the full refund coming into effect.\\n    uint256 private constant _NOT_ENTERED = 1;\\n    uint256 private constant _ENTERED = 2;\\n\\n    uint256 private _status;\\n\\n    constructor() {\\n        _status = _NOT_ENTERED;\\n    }\\n\\n    /**\\n     * @dev Prevents a contract from calling itself, directly or indirectly.\\n     * Calling a `nonReentrant` function from another `nonReentrant`\\n     * function is not supported. It is possible to prevent this from happening\\n     * by making the `nonReentrant` function external, and making it call a\\n     * `private` function that does the actual work.\\n     */\\n    modifier nonReentrant() {\\n        _nonReentrantBefore();\\n        _;\\n        _nonReentrantAfter();\\n    }\\n\\n    function _nonReentrantBefore() private {\\n        // On the first call to nonReentrant, _status will be _NOT_ENTERED\\n        require(_status != _ENTERED, \\\"ReentrancyGuard: reentrant call\\\");\\n\\n        // Any calls to nonReentrant after this point will fail\\n        _status = _ENTERED;\\n    }\\n\\n    function _nonReentrantAfter() private {\\n        // By storing the original value once again, a refund is triggered (see\\n        // https://eips.ethereum.org/EIPS/eip-2200)\\n        _status = _NOT_ENTERED;\\n    }\\n}\\n\",\"keccak256\":\"0x190dd6f8d592b7e4e930feb7f4313aeb8e1c4ad3154c27ce1cf6a512fc30d8cc\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `from` to `to` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(\\n        address from,\\n        address to,\\n        uint256 amount\\n    ) external returns (bool);\\n}\\n\",\"keccak256\":\"0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/draft-IERC20Permit.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 Permit extension allowing approvals to be made via signatures, as defined in\\n * https://eips.ethereum.org/EIPS/eip-2612[EIP-2612].\\n *\\n * Adds the {permit} method, which can be used to change an account's ERC20 allowance (see {IERC20-allowance}) by\\n * presenting a message signed by the account. By not relying on {IERC20-approve}, the token holder account doesn't\\n * need to send a transaction, and thus is not required to hold Ether at all.\\n */\\ninterface IERC20Permit {\\n    /**\\n     * @dev Sets `value` as the allowance of `spender` over ``owner``'s tokens,\\n     * given ``owner``'s signed approval.\\n     *\\n     * IMPORTANT: The same issues {IERC20-approve} has related to transaction\\n     * ordering also apply here.\\n     *\\n     * Emits an {Approval} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     * - `deadline` must be a timestamp in the future.\\n     * - `v`, `r` and `s` must be a valid `secp256k1` signature from `owner`\\n     * over the EIP712-formatted function arguments.\\n     * - the signature must use ``owner``'s current nonce (see {nonces}).\\n     *\\n     * For more information on the signature format, see the\\n     * https://eips.ethereum.org/EIPS/eip-2612#specification[relevant EIP\\n     * section].\\n     */\\n    function permit(\\n        address owner,\\n        address spender,\\n        uint256 value,\\n        uint256 deadline,\\n        uint8 v,\\n        bytes32 r,\\n        bytes32 s\\n    ) external;\\n\\n    /**\\n     * @dev Returns the current nonce for `owner`. This value must be\\n     * included whenever a signature is generated for {permit}.\\n     *\\n     * Every successful call to {permit} increases ``owner``'s nonce by one. This\\n     * prevents a signature from being used multiple times.\\n     */\\n    function nonces(address owner) external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the domain separator used in the encoding of the signature for {permit}, as defined by {EIP712}.\\n     */\\n    // solhint-disable-next-line func-name-mixedcase\\n    function DOMAIN_SEPARATOR() external view returns (bytes32);\\n}\\n\",\"keccak256\":\"0xf41ca991f30855bf80ffd11e9347856a517b977f0a6c2d52e6421a99b7840329\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/utils/SafeERC20.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../IERC20.sol\\\";\\nimport \\\"../extensions/draft-IERC20Permit.sol\\\";\\nimport \\\"../../../utils/Address.sol\\\";\\n\\n/**\\n * @title SafeERC20\\n * @dev Wrappers around ERC20 operations that throw on failure (when the token\\n * contract returns false). Tokens that return no value (and instead revert or\\n * throw on failure) are also supported, non-reverting calls are assumed to be\\n * successful.\\n * To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract,\\n * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.\\n */\\nlibrary SafeERC20 {\\n    using Address for address;\\n\\n    function safeTransfer(\\n        IERC20 token,\\n        address to,\\n        uint256 value\\n    ) internal {\\n        _callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));\\n    }\\n\\n    function safeTransferFrom(\\n        IERC20 token,\\n        address from,\\n        address to,\\n        uint256 value\\n    ) internal {\\n        _callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));\\n    }\\n\\n    /**\\n     * @dev Deprecated. This function has issues similar to the ones found in\\n     * {IERC20-approve}, and its usage is discouraged.\\n     *\\n     * Whenever possible, use {safeIncreaseAllowance} and\\n     * {safeDecreaseAllowance} instead.\\n     */\\n    function safeApprove(\\n        IERC20 token,\\n        address spender,\\n        uint256 value\\n    ) internal {\\n        // safeApprove should only be called when setting an initial allowance,\\n        // or when resetting it to zero. To increase and decrease it, use\\n        // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'\\n        require(\\n            (value == 0) || (token.allowance(address(this), spender) == 0),\\n            \\\"SafeERC20: approve from non-zero to non-zero allowance\\\"\\n        );\\n        _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));\\n    }\\n\\n    function safeIncreaseAllowance(\\n        IERC20 token,\\n        address spender,\\n        uint256 value\\n    ) internal {\\n        uint256 newAllowance = token.allowance(address(this), spender) + value;\\n        _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\\n    }\\n\\n    function safeDecreaseAllowance(\\n        IERC20 token,\\n        address spender,\\n        uint256 value\\n    ) internal {\\n        unchecked {\\n            uint256 oldAllowance = token.allowance(address(this), spender);\\n            require(oldAllowance >= value, \\\"SafeERC20: decreased allowance below zero\\\");\\n            uint256 newAllowance = oldAllowance - value;\\n            _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\\n        }\\n    }\\n\\n    function safePermit(\\n        IERC20Permit token,\\n        address owner,\\n        address spender,\\n        uint256 value,\\n        uint256 deadline,\\n        uint8 v,\\n        bytes32 r,\\n        bytes32 s\\n    ) internal {\\n        uint256 nonceBefore = token.nonces(owner);\\n        token.permit(owner, spender, value, deadline, v, r, s);\\n        uint256 nonceAfter = token.nonces(owner);\\n        require(nonceAfter == nonceBefore + 1, \\\"SafeERC20: permit did not succeed\\\");\\n    }\\n\\n    /**\\n     * @dev Imitates a Solidity high-level call (i.e. a regular function call to a contract), relaxing the requirement\\n     * on the return value: the return value is optional (but if data is returned, it must not be false).\\n     * @param token The token targeted by the call.\\n     * @param data The call data (encoded using abi.encode or one of its variants).\\n     */\\n    function _callOptionalReturn(IERC20 token, bytes memory data) private {\\n        // We need to perform a low level call here, to bypass Solidity's return data size checking mechanism, since\\n        // we're implementing it ourselves. We use {Address-functionCall} to perform this call, which verifies that\\n        // the target address contains contract code and also asserts for success in the low-level call.\\n\\n        bytes memory returndata = address(token).functionCall(data, \\\"SafeERC20: low-level call failed\\\");\\n        if (returndata.length > 0) {\\n            // Return data is optional\\n            require(abi.decode(returndata, (bool)), \\\"SafeERC20: ERC20 operation did not succeed\\\");\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x9b72f93be69ca894d8492c244259615c4a742afc8d63720dbc8bb81087d9b238\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Address.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.8.0) (utils/Address.sol)\\n\\npragma solidity ^0.8.1;\\n\\n/**\\n * @dev Collection of functions related to the address type\\n */\\nlibrary Address {\\n    /**\\n     * @dev Returns true if `account` is a contract.\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * It is unsafe to assume that an address for which this function returns\\n     * false is an externally-owned account (EOA) and not a contract.\\n     *\\n     * Among others, `isContract` will return false for the following\\n     * types of addresses:\\n     *\\n     *  - an externally-owned account\\n     *  - a contract in construction\\n     *  - an address where a contract will be created\\n     *  - an address where a contract lived, but was destroyed\\n     * ====\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * You shouldn't rely on `isContract` to protect against flash loan attacks!\\n     *\\n     * Preventing calls from contracts is highly discouraged. It breaks composability, breaks support for smart wallets\\n     * like Gnosis Safe, and does not provide security since it can be circumvented by calling from a contract\\n     * constructor.\\n     * ====\\n     */\\n    function isContract(address account) internal view returns (bool) {\\n        // This method relies on extcodesize/address.code.length, which returns 0\\n        // for contracts in construction, since the code is only stored at the end\\n        // of the constructor execution.\\n\\n        return account.code.length > 0;\\n    }\\n\\n    /**\\n     * @dev Replacement for Solidity's `transfer`: sends `amount` wei to\\n     * `recipient`, forwarding all available gas and reverting on errors.\\n     *\\n     * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost\\n     * of certain opcodes, possibly making contracts go over the 2300 gas limit\\n     * imposed by `transfer`, making them unable to receive funds via\\n     * `transfer`. {sendValue} removes this limitation.\\n     *\\n     * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].\\n     *\\n     * IMPORTANT: because control is transferred to `recipient`, care must be\\n     * taken to not create reentrancy vulnerabilities. Consider using\\n     * {ReentrancyGuard} or the\\n     * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].\\n     */\\n    function sendValue(address payable recipient, uint256 amount) internal {\\n        require(address(this).balance >= amount, \\\"Address: insufficient balance\\\");\\n\\n        (bool success, ) = recipient.call{value: amount}(\\\"\\\");\\n        require(success, \\\"Address: unable to send value, recipient may have reverted\\\");\\n    }\\n\\n    /**\\n     * @dev Performs a Solidity function call using a low level `call`. A\\n     * plain `call` is an unsafe replacement for a function call: use this\\n     * function instead.\\n     *\\n     * If `target` reverts with a revert reason, it is bubbled up by this\\n     * function (like regular Solidity function calls).\\n     *\\n     * Returns the raw returned data. To convert to the expected return value,\\n     * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].\\n     *\\n     * Requirements:\\n     *\\n     * - `target` must be a contract.\\n     * - calling `target` with `data` must not revert.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(address target, bytes memory data) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, 0, \\\"Address: low-level call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with\\n     * `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, 0, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but also transferring `value` wei to `target`.\\n     *\\n     * Requirements:\\n     *\\n     * - the calling contract must have an ETH balance of at least `value`.\\n     * - the called Solidity function must be `payable`.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(\\n        address target,\\n        bytes memory data,\\n        uint256 value\\n    ) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, value, \\\"Address: low-level call with value failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but\\n     * with `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(\\n        address target,\\n        bytes memory data,\\n        uint256 value,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        require(address(this).balance >= value, \\\"Address: insufficient balance for call\\\");\\n        (bool success, bytes memory returndata) = target.call{value: value}(data);\\n        return verifyCallResultFromTarget(target, success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {\\n        return functionStaticCall(target, data, \\\"Address: low-level static call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal view returns (bytes memory) {\\n        (bool success, bytes memory returndata) = target.staticcall(data);\\n        return verifyCallResultFromTarget(target, success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but performing a delegate call.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function functionDelegateCall(address target, bytes memory data) internal returns (bytes memory) {\\n        return functionDelegateCall(target, data, \\\"Address: low-level delegate call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],\\n     * but performing a delegate call.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function functionDelegateCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        (bool success, bytes memory returndata) = target.delegatecall(data);\\n        return verifyCallResultFromTarget(target, success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Tool to verify that a low level call to smart-contract was successful, and revert (either by bubbling\\n     * the revert reason or using the provided one) in case of unsuccessful call or if target was not a contract.\\n     *\\n     * _Available since v4.8._\\n     */\\n    function verifyCallResultFromTarget(\\n        address target,\\n        bool success,\\n        bytes memory returndata,\\n        string memory errorMessage\\n    ) internal view returns (bytes memory) {\\n        if (success) {\\n            if (returndata.length == 0) {\\n                // only check isContract if the call was successful and the return data is empty\\n                // otherwise we already know that it was a contract\\n                require(isContract(target), \\\"Address: call to non-contract\\\");\\n            }\\n            return returndata;\\n        } else {\\n            _revert(returndata, errorMessage);\\n        }\\n    }\\n\\n    /**\\n     * @dev Tool to verify that a low level call was successful, and revert if it wasn't, either by bubbling the\\n     * revert reason or using the provided one.\\n     *\\n     * _Available since v4.3._\\n     */\\n    function verifyCallResult(\\n        bool success,\\n        bytes memory returndata,\\n        string memory errorMessage\\n    ) internal pure returns (bytes memory) {\\n        if (success) {\\n            return returndata;\\n        } else {\\n            _revert(returndata, errorMessage);\\n        }\\n    }\\n\\n    function _revert(bytes memory returndata, string memory errorMessage) private pure {\\n        // Look for revert reason and bubble it up if present\\n        if (returndata.length > 0) {\\n            // The easiest way to bubble the revert reason is using memory via assembly\\n            /// @solidity memory-safe-assembly\\n            assembly {\\n                let returndata_size := mload(returndata)\\n                revert(add(32, returndata), returndata_size)\\n            }\\n        } else {\\n            revert(errorMessage);\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xf96f969e24029d43d0df89e59d365f277021dac62b48e1c1e3ebe0acdd7f1ca1\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n}\\n\",\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\"},\"contracts/StakingRewards.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\nimport \\\"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\\\";\\r\\nimport \\\"@openzeppelin/contracts/security/ReentrancyGuard.sol\\\";\\r\\nimport \\\"@openzeppelin/contracts/security/Pausable.sol\\\";\\r\\nimport \\\"./utils/Owned.sol\\\";\\r\\nimport \\\"./interfaces/IStakingRewards.sol\\\";\\r\\nimport \\\"./interfaces/ISupplySchedule.sol\\\";\\r\\nimport \\\"./interfaces/IRewardEscrow.sol\\\";\\r\\n\\r\\n/// @title DTORO Staking Rewards\\r\\n/// to DexToro\\r\\ncontract StakingRewards is IStakingRewards, Owned, ReentrancyGuard, Pausable {\\r\\n    using SafeERC20 for IERC20;\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                                CONSTANTS\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice token used for BOTH staking and rewards\\r\\n    IERC20 public immutable token;\\r\\n\\r\\n    /// @notice escrow contract which holds (and may stake) reward tokens\\r\\n    IRewardEscrow public immutable rewardEscrow;\\r\\n\\r\\n    /// @notice handles reward token minting logic\\r\\n    ISupplySchedule public immutable supplySchedule;\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                                STATE\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice number of tokens staked by address\\r\\n    /// @dev this includes escrowed tokens stake\\r\\n    mapping(address => uint256) private balances;\\r\\n\\r\\n    /// @notice number of staked escrow tokens by address\\r\\n    mapping(address => uint256) private escrowedBalances;\\r\\n\\r\\n    /// @notice total number of tokens staked in this contract\\r\\n    uint256 private _totalSupply;\\r\\n\\r\\n    /// @notice marks applicable reward period finish time\\r\\n    uint256 public periodFinish = 0;\\r\\n\\r\\n    /// @notice amount of tokens minted per second\\r\\n    uint256 public rewardRate = 0;\\r\\n\\r\\n    /// @notice period for rewards\\r\\n    uint256 public rewardsDuration = 7 days;\\r\\n\\r\\n    /// @notice track last time the rewards were updated\\r\\n    uint256 public lastUpdateTime;\\r\\n\\r\\n    /// @notice summation of rewardRate divided by total staked tokens\\r\\n    uint256 public rewardPerTokenStored;\\r\\n\\r\\n    /// @notice represents the rewardPerToken\\r\\n    /// value the last time the stake calculated earned() rewards\\r\\n    mapping(address => uint256) public userRewardPerTokenPaid;\\r\\n\\r\\n    /// @notice track rewards for a given user which changes when\\r\\n    /// a user stakes, unstakes, or claims rewards\\r\\n    mapping(address => uint256) public rewards;\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                                EVENTS\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice update reward rate\\r\\n    /// @param reward: amount to be distributed over applicable rewards duration\\r\\n    event RewardAdded(uint256 reward);\\r\\n\\r\\n    /// @notice emitted when user stakes tokens\\r\\n    /// @param user: staker address\\r\\n    /// @param amount: amount staked\\r\\n    event Staked(address indexed user, uint256 amount);\\r\\n\\r\\n    /// @notice emitted when user unstakes tokens\\r\\n    /// @param user: address of user unstaking\\r\\n    /// @param amount: amount unstaked\\r\\n    event Unstaked(address indexed user, uint256 amount);\\r\\n\\r\\n    /// @notice emitted when escrow staked\\r\\n    /// @param user: owner of escrowed tokens address\\r\\n    /// @param amount: amount staked\\r\\n    event EscrowStaked(address indexed user, uint256 amount);\\r\\n\\r\\n    /// @notice emitted when staked escrow tokens are unstaked\\r\\n    /// @param user: owner of escrowed tokens address\\r\\n    /// @param amount: amount unstaked\\r\\n    event EscrowUnstaked(address user, uint256 amount);\\r\\n\\r\\n    /// @notice emitted when user claims rewards\\r\\n    /// @param user: address of user claiming rewards\\r\\n    /// @param reward: amount of reward token claimed\\r\\n    event RewardPaid(address indexed user, uint256 reward);\\r\\n\\r\\n    /// @notice emitted when rewards duration changes\\r\\n    /// @param newDuration: denoted in seconds\\r\\n    event RewardsDurationUpdated(uint256 newDuration);\\r\\n\\r\\n    /// @notice emitted when tokens are recovered from this contract\\r\\n    /// @param token: address of token recovered\\r\\n    /// @param amount: amount of token recovered\\r\\n    event Recovered(address token, uint256 amount);\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                                AUTH\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice access control modifier for rewardEscrow\\r\\n    modifier onlyRewardEscrow() {\\r\\n        require(\\r\\n            msg.sender == address(rewardEscrow),\\r\\n            \\\"StakingRewards: Only Reward Escrow\\\"\\r\\n        );\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    /// @notice access control modifier for rewardEscrow\\r\\n    modifier onlySupplySchedule() {\\r\\n        require(\\r\\n            msg.sender == address(supplySchedule),\\r\\n            \\\"StakingRewards: Only Supply Schedule\\\"\\r\\n        );\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                            CONSTRUCTOR\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice configure StakingRewards state\\r\\n    /// @dev owner set to address that deployed StakingRewards\\r\\n    /// @param _token: token used for staking and for rewards\\r\\n    /// @param _rewardEscrow: escrow contract which holds (and may stake) reward tokens\\r\\n    /// @param _supplySchedule: handles reward token minting logic\\r\\n    constructor(\\r\\n        address _token,\\r\\n        address _rewardEscrow,\\r\\n        address _supplySchedule\\r\\n    ) Owned(msg.sender) {\\r\\n        // define reward/staking token\\r\\n        token = IERC20(_token);\\r\\n\\r\\n        // define contracts which will interact with StakingRewards\\r\\n        rewardEscrow = IRewardEscrow(_rewardEscrow);\\r\\n        supplySchedule = ISupplySchedule(_supplySchedule);\\r\\n    }\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                                VIEWS\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @dev returns staked tokens which will likely not be equal to total tokens\\r\\n    /// in the contract since reward and staking tokens are the same\\r\\n    /// @return total amount of tokens that are being staked\\r\\n    function totalSupply() external view override returns (uint256) {\\r\\n        return _totalSupply;\\r\\n    }\\r\\n\\r\\n    /// @param account: address of potential staker\\r\\n    /// @return amount of tokens staked by account\\r\\n    function balanceOf(address account)\\r\\n        external\\r\\n        view\\r\\n        override\\r\\n        returns (uint256)\\r\\n    {\\r\\n        return balances[account];\\r\\n    }\\r\\n\\r\\n    /// @notice Getter function for number of staked escrow tokens\\r\\n    /// @param account address to check the escrowed tokens staked\\r\\n    /// @return amount of escrowed tokens staked\\r\\n    function escrowedBalanceOf(address account)\\r\\n        external\\r\\n        view\\r\\n        override\\r\\n        returns (uint256)\\r\\n    {\\r\\n        return escrowedBalances[account];\\r\\n    }\\r\\n\\r\\n    /// @return rewards for the duration specified by rewardsDuration\\r\\n    function getRewardForDuration() external view override returns (uint256) {\\r\\n        return rewardRate * rewardsDuration;\\r\\n    }\\r\\n\\r\\n    /// @notice Getter function for number of staked non-escrow tokens\\r\\n    /// @param account address to check the non-escrowed tokens staked\\r\\n    /// @return amount of non-escrowed tokens staked\\r\\n    function nonEscrowedBalanceOf(address account)\\r\\n        public\\r\\n        view\\r\\n        override\\r\\n        returns (uint256)\\r\\n    {\\r\\n        return balances[account] - escrowedBalances[account];\\r\\n    }\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                            STAKE/UNSTAKE\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice stake token\\r\\n    /// @param amount: amount to stake\\r\\n    /// @dev updateReward() called prior to function logic\\r\\n    function stake(uint256 amount)\\r\\n        external\\r\\n        override\\r\\n        nonReentrant\\r\\n        whenNotPaused\\r\\n        updateReward(msg.sender)\\r\\n    {\\r\\n        require(amount > 0, \\\"StakingRewards: Cannot stake 0\\\");\\r\\n\\r\\n        // update state\\r\\n        _totalSupply += amount;\\r\\n        balances[msg.sender] += amount;\\r\\n\\r\\n        // transfer token to this contract from the caller\\r\\n        token.safeTransferFrom(msg.sender, address(this), amount);\\r\\n\\r\\n        // emit staking event and index msg.sender\\r\\n        emit Staked(msg.sender, amount);\\r\\n    }\\r\\n\\r\\n    /// @notice unstake token\\r\\n    /// @param amount: amount to unstake\\r\\n    /// @dev updateReward() called prior to function logic\\r\\n    function unstake(uint256 amount)\\r\\n        public\\r\\n        override\\r\\n        nonReentrant\\r\\n        updateReward(msg.sender)\\r\\n    {\\r\\n        require(amount > 0, \\\"StakingRewards: Cannot Unstake 0\\\");\\r\\n        require(\\r\\n            amount <= nonEscrowedBalanceOf(msg.sender),\\r\\n            \\\"StakingRewards: Invalid Amount\\\"\\r\\n        );\\r\\n\\r\\n        // update state\\r\\n        _totalSupply -= amount;\\r\\n        balances[msg.sender] -= amount;\\r\\n\\r\\n        // transfer token from this contract to the caller\\r\\n        token.safeTransfer(msg.sender, amount);\\r\\n\\r\\n        // emit unstake event and index msg.sender\\r\\n        emit Unstaked(msg.sender, amount);\\r\\n    }\\r\\n\\r\\n    /// @notice stake escrowed token\\r\\n    /// @param account: address which owns token\\r\\n    /// @param amount: amount to stake\\r\\n    /// @dev updateReward() called prior to function logic\\r\\n    /// @dev msg.sender NOT used (account is used)\\r\\n    function stakeEscrow(address account, uint256 amount)\\r\\n        external\\r\\n        override\\r\\n        whenNotPaused\\r\\n        onlyRewardEscrow\\r\\n        updateReward(account)\\r\\n    {\\r\\n        require(amount > 0, \\\"StakingRewards: Cannot stake 0\\\");\\r\\n\\r\\n        // update state\\r\\n        balances[account] += amount;\\r\\n        escrowedBalances[account] += amount;\\r\\n\\r\\n        // updates total supply despite no new staking token being transfered.\\r\\n        // escrowed tokens are locked in RewardEscrow\\r\\n        _totalSupply += amount;\\r\\n\\r\\n        // emit escrow staking event and index _account\\r\\n        emit EscrowStaked(account, amount);\\r\\n    }\\r\\n\\r\\n    /// @notice unstake escrowed token\\r\\n    /// @param account: address which owns token\\r\\n    /// @param amount: amount to unstake\\r\\n    /// @dev updateReward() called prior to function logic\\r\\n    /// @dev msg.sender NOT used (account is used)\\r\\n    function unstakeEscrow(address account, uint256 amount)\\r\\n        external\\r\\n        override\\r\\n        nonReentrant\\r\\n        onlyRewardEscrow\\r\\n        updateReward(account)\\r\\n    {\\r\\n        require(amount > 0, \\\"StakingRewards: Cannot Unstake 0\\\");\\r\\n        require(\\r\\n            escrowedBalances[account] >= amount,\\r\\n            \\\"StakingRewards: Invalid Amount\\\"\\r\\n        );\\r\\n\\r\\n        // update state\\r\\n        balances[account] -= amount;\\r\\n        escrowedBalances[account] -= amount;\\r\\n\\r\\n        // updates total supply despite no new staking token being transfered.\\r\\n        // escrowed tokens are locked in RewardEscrow\\r\\n        _totalSupply -= amount;\\r\\n\\r\\n        // emit escrow unstaked event and index account\\r\\n        emit EscrowUnstaked(account, amount);\\r\\n    }\\r\\n\\r\\n    /// @notice unstake all available staked non-escrowed tokens and\\r\\n    /// claim any rewards\\r\\n    function exit() external override {\\r\\n        unstake(nonEscrowedBalanceOf(msg.sender));\\r\\n        getReward();\\r\\n    }    \\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                            CLAIM REWARDS\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice caller claims any rewards generated from staking\\r\\n    /// @dev rewards are escrowed in RewardEscrow\\r\\n    /// @dev updateReward() called prior to function logic\\r\\n    function getReward() public override nonReentrant updateReward(msg.sender) {\\r\\n        uint256 reward = rewards[msg.sender];\\r\\n        if (reward > 0) {\\r\\n            // update state (first)\\r\\n            rewards[msg.sender] = 0;\\r\\n\\r\\n            // transfer token from this contract to the rewardEscrow\\r\\n            // and create a vesting entry for the caller\\r\\n            token.safeTransfer(address(rewardEscrow), reward);\\r\\n            rewardEscrow.appendVestingEntry(msg.sender, reward, 52 weeks);\\r\\n\\r\\n            // emit reward claimed event and index msg.sender\\r\\n            emit RewardPaid(msg.sender, reward);\\r\\n        }\\r\\n    }\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                        REWARD UPDATE CALCULATIONS\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice update reward state for the account and contract\\r\\n    /// @param account: address of account which rewards are being updated for\\r\\n    /// @dev contract state not specific to an account will be updated also\\r\\n    modifier updateReward(address account) {\\r\\n        rewardPerTokenStored = rewardPerToken();\\r\\n        lastUpdateTime = lastTimeRewardApplicable();\\r\\n\\r\\n        if (account != address(0)) {\\r\\n            // update amount of rewards a user can claim\\r\\n            rewards[account] = earned(account);\\r\\n\\r\\n            // update reward per token staked AT this given time\\r\\n            // (i.e. when this user is interacting with StakingRewards)\\r\\n            userRewardPerTokenPaid[account] = rewardPerTokenStored;\\r\\n        }\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    /// @notice calculate running sum of reward per total tokens staked\\r\\n    /// at this specific time\\r\\n    /// @return running sum of reward per total tokens staked\\r\\n    function rewardPerToken() public view override returns (uint256) {\\r\\n        if (_totalSupply == 0) {\\r\\n            return rewardPerTokenStored;\\r\\n        }\\r\\n\\r\\n        return\\r\\n            rewardPerTokenStored +\\r\\n            (((lastTimeRewardApplicable() - lastUpdateTime) *\\r\\n                rewardRate *\\r\\n                1e18) / (_totalSupply));\\r\\n    }\\r\\n\\r\\n    /// @return timestamp of the last time rewards are applicable\\r\\n    function lastTimeRewardApplicable() public view override returns (uint256) {\\r\\n        return block.timestamp < periodFinish ? block.timestamp : periodFinish;\\r\\n    }\\r\\n\\r\\n    /// @notice determine how much reward token an account has earned thus far\\r\\n    /// @param account: address of account earned amount is being calculated for\\r\\n    function earned(address account) public view override returns (uint256) {\\r\\n        return\\r\\n            ((balances[account] *\\r\\n                (rewardPerToken() - userRewardPerTokenPaid[account])) / 1e18) +\\r\\n            rewards[account];\\r\\n    }\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                            SETTINGS\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice configure reward rate\\r\\n    /// @param reward: amount of token to be distributed over a period\\r\\n    /// @dev updateReward() called prior to function logic (with zero address)\\r\\n    function notifyRewardAmount(uint256 reward)\\r\\n        external\\r\\n        override\\r\\n        onlySupplySchedule\\r\\n        updateReward(address(0))\\r\\n    {\\r\\n        if (block.timestamp >= periodFinish) {\\r\\n            rewardRate = reward / rewardsDuration;\\r\\n        } else {\\r\\n            uint256 remaining = periodFinish - block.timestamp;\\r\\n            uint256 leftover = remaining * rewardRate;\\r\\n            rewardRate = (reward + leftover) / rewardsDuration;\\r\\n        }\\r\\n\\r\\n        lastUpdateTime = block.timestamp;\\r\\n        periodFinish = block.timestamp + rewardsDuration;\\r\\n        emit RewardAdded(reward);\\r\\n    }\\r\\n\\r\\n    /// @notice set rewards duration\\r\\n    /// @param _rewardsDuration: denoted in seconds\\r\\n    function setRewardsDuration(uint256 _rewardsDuration)\\r\\n        external\\r\\n        override\\r\\n        onlyOwner\\r\\n    {\\r\\n        require(\\r\\n            block.timestamp > periodFinish,\\r\\n            \\\"StakingRewards: Previous rewards period must be complete before changing the duration for the new period\\\"\\r\\n        );\\r\\n        rewardsDuration = _rewardsDuration;\\r\\n        emit RewardsDurationUpdated(rewardsDuration);\\r\\n    }\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                            PAUSABLE\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @dev Triggers stopped state\\r\\n    function pauseStakingRewards() external override onlyOwner {\\r\\n        Pausable._pause();\\r\\n    }\\r\\n\\r\\n    /// @dev Returns to normal state.\\r\\n    function unpauseStakingRewards() external override onlyOwner {\\r\\n        Pausable._unpause();\\r\\n    }\\r\\n\\r\\n    /*///////////////////////////////////////////////////////////////\\r\\n                            MISCELLANEOUS\\r\\n    ///////////////////////////////////////////////////////////////*/\\r\\n\\r\\n    /// @notice added to support recovering LP Rewards from other systems\\r\\n    /// such as BAL to be distributed to holders\\r\\n    /// @param tokenAddress: address of token to be recovered\\r\\n    /// @param tokenAmount: amount of token to be recovered\\r\\n    function recoverERC20(address tokenAddress, uint256 tokenAmount)\\r\\n        external\\r\\n        override\\r\\n        onlyOwner\\r\\n    {\\r\\n        require(\\r\\n            tokenAddress != address(token),\\r\\n            \\\"StakingRewards: Cannot unstake the staking token\\\"\\r\\n        );\\r\\n        IERC20(tokenAddress).safeTransfer(owner, tokenAmount);\\r\\n        emit Recovered(tokenAddress, tokenAmount);\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x41f19043a379049bcb530b28f2215d022891a678e7bd4a12c288f1dc0bddb93d\",\"license\":\"MIT\"},\"contracts/interfaces/IRewardEscrow.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\nlibrary VestingEntries {\\r\\n    struct VestingEntry {\\r\\n        uint64 endTime;\\r\\n        uint256 escrowAmount;\\r\\n        uint256 duration;\\r\\n    }\\r\\n    struct VestingEntryWithID {\\r\\n        uint64 endTime;\\r\\n        uint256 escrowAmount;\\r\\n        uint256 entryID;\\r\\n    }\\r\\n}\\r\\n\\r\\ninterface IRewardEscrow {\\r\\n    // Views\\r\\n    function getDexToroAddress() external view returns (address);\\r\\n\\r\\n    function balanceOf(address account) external view returns (uint256);\\r\\n\\r\\n    function numVestingEntries(address account) external view returns (uint256);\\r\\n\\r\\n    function totalEscrowedAccountBalance(address account)\\r\\n        external\\r\\n        view\\r\\n        returns (uint256);\\r\\n\\r\\n    function totalVestedAccountBalance(address account)\\r\\n        external\\r\\n        view\\r\\n        returns (uint256);\\r\\n\\r\\n    function getVestingQuantity(address account, uint256[] calldata entryIDs)\\r\\n        external\\r\\n        view\\r\\n        returns (uint256, uint256);\\r\\n\\r\\n    function getVestingSchedules(\\r\\n        address account,\\r\\n        uint256 index,\\r\\n        uint256 pageSize\\r\\n    ) external view returns (VestingEntries.VestingEntryWithID[] memory);\\r\\n\\r\\n    function getAccountVestingEntryIDs(\\r\\n        address account,\\r\\n        uint256 index,\\r\\n        uint256 pageSize\\r\\n    ) external view returns (uint256[] memory);\\r\\n\\r\\n    function getVestingEntryClaimable(address account, uint256 entryID)\\r\\n        external\\r\\n        view\\r\\n        returns (uint256, uint256);\\r\\n\\r\\n    function getVestingEntry(address account, uint256 entryID)\\r\\n        external\\r\\n        view\\r\\n        returns (\\r\\n            uint64,\\r\\n            uint256,\\r\\n            uint256\\r\\n        );\\r\\n\\r\\n    // Mutative functions\\r\\n    function vest(uint256[] calldata entryIDs) external;\\r\\n\\r\\n    function createEscrowEntry(\\r\\n        address beneficiary,\\r\\n        uint256 deposit,\\r\\n        uint256 duration\\r\\n    ) external;\\r\\n\\r\\n    function appendVestingEntry(\\r\\n        address account,\\r\\n        uint256 quantity,\\r\\n        uint256 duration\\r\\n    ) external;\\r\\n\\r\\n    function stakeEscrow(uint256 _amount) external;\\r\\n\\r\\n    function unstakeEscrow(uint256 _amount) external;\\r\\n}\\r\\n\",\"keccak256\":\"0x4cf88db8366e6aa6487e90abe6b80bba4b22b6f760721640b8a03bacf518f215\",\"license\":\"MIT\"},\"contracts/interfaces/IStakingRewards.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\ninterface IStakingRewards {\\r\\n    /// VIEWS\\r\\n    // token state\\r\\n    function totalSupply() external view returns (uint256);\\r\\n    // staking state\\r\\n    function balanceOf(address account) external view returns (uint256);\\r\\n    function escrowedBalanceOf(address account) external view returns (uint256);\\r\\n    function nonEscrowedBalanceOf(address account) external view returns (uint256);\\r\\n    // rewards\\r\\n    function getRewardForDuration() external view returns (uint256);\\r\\n    function rewardPerToken() external view returns (uint256);\\r\\n    function lastTimeRewardApplicable() external view returns (uint256);\\r\\n    function earned(address account) external view returns (uint256);\\r\\n\\r\\n    /// MUTATIVE\\r\\n    // Staking/Unstaking\\r\\n    function stake(uint256 amount) external;\\r\\n    function unstake(uint256 amount) external;\\r\\n    function stakeEscrow(address account, uint256 amount) external;\\r\\n    function unstakeEscrow(address account, uint256 amount) external;\\r\\n    function exit() external;\\r\\n    // claim rewards\\r\\n    function getReward() external;\\r\\n    // settings\\r\\n    function notifyRewardAmount(uint256 reward) external;\\r\\n    function setRewardsDuration(uint256 _rewardsDuration) external;\\r\\n    // pausable\\r\\n    function pauseStakingRewards() external;\\r\\n    function unpauseStakingRewards() external;\\r\\n    // misc.\\r\\n    function recoverERC20(address tokenAddress, uint256 tokenAmount) external;\\r\\n}\\r\\n\",\"keccak256\":\"0x9996ee528d6f91c9c2303142b3bedf023bf7692608e2023c868c89c5b0788ace\",\"license\":\"MIT\"},\"contracts/interfaces/ISupplySchedule.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity >=0.4.24;\\r\\n\\r\\ninterface ISupplySchedule {\\r\\n    // Views\\r\\n    function mintableSupply() external view returns (uint);\\r\\n\\r\\n    function isMintable() external view returns (bool);\\r\\n\\r\\n    // Mutative functions\\r\\n\\r\\n    function mint() external;\\r\\n\\r\\n    function setTreasuryDiversion(uint _treasuryDiversion) external;\\r\\n\\r\\n    function setTradingRewardsDiversion(uint _tradingRewardsDiversion) external;\\r\\n    \\r\\n    function setStakingRewards(address _stakingRewards) external;\\r\\n\\r\\n    function setTradingRewards(address _tradingRewards) external;\\r\\n}\",\"keccak256\":\"0x01083e86d0be9317e5c5085d2576354241a7a1baceec977f7d0043beb8549b27\",\"license\":\"MIT\"},\"contracts/utils/Owned.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\ncontract Owned {\\r\\n    address public owner;\\r\\n    address public nominatedOwner;\\r\\n\\r\\n    constructor(address _owner) {\\r\\n        require(_owner != address(0), \\\"Owner address cannot be 0\\\");\\r\\n        owner = _owner;\\r\\n        emit OwnerChanged(address(0), _owner);\\r\\n    }\\r\\n\\r\\n    function nominateNewOwner(address _owner) external onlyOwner {\\r\\n        nominatedOwner = _owner;\\r\\n        emit OwnerNominated(_owner);\\r\\n    }\\r\\n\\r\\n    function acceptOwnership() external {\\r\\n        require(msg.sender == nominatedOwner, \\\"You must be nominated before you can accept ownership\\\");\\r\\n        emit OwnerChanged(owner, nominatedOwner);\\r\\n        owner = nominatedOwner;\\r\\n        nominatedOwner = address(0);\\r\\n    }\\r\\n\\r\\n    modifier onlyOwner {\\r\\n        _onlyOwner();\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    function _onlyOwner() private view {\\r\\n        require(msg.sender == owner, \\\"Only the contract owner may perform this action\\\");\\r\\n    }\\r\\n\\r\\n    event OwnerNominated(address newOwner);\\r\\n    event OwnerChanged(address oldOwner, address newOwner);\\r\\n}\\r\\n\",\"keccak256\":\"0x60aea81bf9c266c4906c785ae2108d18650c9a63fc3a9fc10d3f758d040693a9\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60e06040526000600755600060085562093a806009553480156200002257600080fd5b5060405162001dda38038062001dda83398101604081905262000045916200013a565b3380620000985760405162461bcd60e51b815260206004820152601960248201527f4f776e657220616464726573732063616e6e6f74206265203000000000000000604482015260640160405180910390fd5b600080546001600160a01b0319166001600160a01b03831690811782556040805192835260208301919091527fb532073b38c83145e3e5135377a08bf9aab55bc0fd7c1179cd4fb995d2a5159c910160405180910390a15060016002556003805460ff191690556001600160a01b0392831660805290821660a0521660c05262000184565b80516001600160a01b03811681146200013557600080fd5b919050565b6000806000606084860312156200015057600080fd5b6200015b846200011d565b92506200016b602085016200011d565b91506200017b604085016200011d565b90509250925092565b60805160a05160c051611be7620001f360003960008181610433015261079a0152600081816103f9015281816109ed01528181610a5101528181610d7801526110c20152600081816104ab01528181610724015281816109c301528181610c5701526110550152611be76000f3fe608060405234801561001057600080fd5b50600436106102255760003560e01c806380faa57d1161012a578063c40dd66f116100bd578063cd3daf9d1161008c578063e9fad8ee11610071578063e9fad8ee14610495578063ebe2b12b1461049d578063fc0c546a146104a657600080fd5b8063cd3daf9d14610484578063df136d651461048c57600080fd5b8063c40dd66f1461042e578063c8f33c9114610455578063c9c7da161461045e578063cc1a378f1461047157600080fd5b80638da5cb5b116100f95780638da5cb5b146103ce578063985134fb146103e1578063a430be6c146103f4578063a694fc3a1461041b57600080fd5b806380faa57d1461038b5780638980f11f1461039357806389997f9a146103a65780638b876347146103ae57600080fd5b80633c6b16ab116101bd5780635c975abb1161018c57806370a082311161017157806370a082311461035157806379ba50971461037a5780637b0a47ee1461038257600080fd5b80635c975abb146103335780636079916f1461034957600080fd5b80633c6b16ab146102da5780633d18b912146102ed578063514a16c9146102f557806353a47bb71461030857600080fd5b806318160ddd116101f957806318160ddd146102ae5780631c1f78eb146102b65780632e17de78146102be578063386a9525146102d157600080fd5b80628cc2621461022a578063057a601b146102505780630700037d146102795780631627540c14610299575b600080fd5b61023d610238366004611a42565b6104cd565b6040519081526020015b60405180910390f35b61023d61025e366004611a42565b6001600160a01b031660009081526005602052604090205490565b61023d610287366004611a42565b600d6020526000908152604090205481565b6102ac6102a7366004611a42565b61054a565b005b60065461023d565b61023d6105b4565b6102ac6102cc366004611a64565b6105cb565b61023d60095481565b6102ac6102e8366004611a64565b61078f565b6102ac610935565b61023d610303366004611a42565b610af9565b60015461031b906001600160a01b031681565b6040516001600160a01b039091168152602001610247565b60035460ff166040519015158152602001610247565b6102ac610b27565b61023d61035f366004611a42565b6001600160a01b031660009081526004602052604090205490565b6102ac610b37565b61023d60085481565b61023d610c36565b6102ac6103a1366004611a7d565b610c4d565b6102ac610d55565b61023d6103bc366004611a42565b600c6020526000908152604090205481565b60005461031b906001600160a01b031681565b6102ac6103ef366004611a7d565b610d65565b61031b7f000000000000000000000000000000000000000000000000000000000000000081565b6102ac610429366004611a64565b610f51565b61031b7f000000000000000000000000000000000000000000000000000000000000000081565b61023d600a5481565b6102ac61046c366004611a7d565b6110af565b6102ac61047f366004611a64565b611311565b61023d611411565b61023d600b5481565b6102ac611472565b61023d60075481565b61031b7f000000000000000000000000000000000000000000000000000000000000000081565b6001600160a01b0381166000908152600d6020908152604080832054600c909252822054670de0b6b3a764000090610503611411565b61050d9190611abd565b6001600160a01b0385166000908152600460205260409020546105309190611ad0565b61053a9190611ae7565b6105449190611b09565b92915050565b610552611486565b6001805473ffffffffffffffffffffffffffffffffffffffff19166001600160a01b0383169081179091556040519081527f906a1c6bd7e3091ea86693dd029a831c19049ce77f1dce2ce0bab1cacbabce22906020015b60405180910390a150565b60006009546008546105c69190611ad0565b905090565b6105d3611506565b336105dc611411565b600b556105e7610c36565b600a556001600160a01b0381161561062e57610602816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b600082116106835760405162461bcd60e51b815260206004820181905260248201527f5374616b696e67526577617264733a2043616e6e6f7420556e7374616b65203060448201526064015b60405180910390fd5b61068c33610af9565b8211156106db5760405162461bcd60e51b815260206004820152601e60248201527f5374616b696e67526577617264733a20496e76616c696420416d6f756e740000604482015260640161067a565b81600660008282546106ed9190611abd565b90915550503360009081526004602052604081208054849290610711908490611abd565b9091555061074b90506001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016338461155d565b60405182815233907f0f5bb82176feb1b5e747e28471aa92156a04d9f3ab9f45f28e2d704232b93f75906020015b60405180910390a25061078c6001600255565b50565b336001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000161461082c5760405162461bcd60e51b8152602060048201526024808201527f5374616b696e67526577617264733a204f6e6c7920537570706c79205363686560448201527f64756c6500000000000000000000000000000000000000000000000000000000606482015260840161067a565b6000610836611411565b600b55610841610c36565b600a556001600160a01b038116156108885761085c816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b60075442106108a65760095461089e9083611ae7565b6008556108e8565b6000426007546108b69190611abd565b90506000600854826108c89190611ad0565b6009549091506108d88286611b09565b6108e29190611ae7565b60085550505b42600a8190556009546108fa91611b09565b6007556040518281527fde88a922e0d3b88b24e9623efeb464919c6bf9f66857a65e2bfcf2ce87a9433d906020015b60405180910390a15050565b61093d611506565b33610946611411565b600b55610951610c36565b600a556001600160a01b038116156109985761096c816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b336000908152600d60205260409020548015610aeb57336000908152600d6020526040812055610a127f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03167f00000000000000000000000000000000000000000000000000000000000000008361155d565b6040517f1bb47b44000000000000000000000000000000000000000000000000000000008152336004820152602481018290526301dfe20060448201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031690631bb47b4490606401600060405180830381600087803b158015610a9d57600080fd5b505af1158015610ab1573d6000803e3d6000fd5b50506040518381523392507fe2403640ba68fed3a2f88b7557551d1993f84b99bb10ff833f0cf8db0c5e0486915060200160405180910390a25b5050610af76001600255565b565b6001600160a01b03811660009081526005602090815260408083205460049092528220546105449190611abd565b610b2f611486565b610af761160b565b6001546001600160a01b03163314610bb75760405162461bcd60e51b815260206004820152603560248201527f596f75206d757374206265206e6f6d696e61746564206265666f726520796f7560448201527f2063616e20616363657074206f776e6572736869700000000000000000000000606482015260840161067a565b600054600154604080516001600160a01b0393841681529290911660208301527fb532073b38c83145e3e5135377a08bf9aab55bc0fd7c1179cd4fb995d2a5159c910160405180910390a1600180546000805473ffffffffffffffffffffffffffffffffffffffff199081166001600160a01b03841617909155169055565b60006007544210610c48575060075490565b504290565b610c55611486565b7f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b031603610cfc5760405162461bcd60e51b815260206004820152603060248201527f5374616b696e67526577617264733a2043616e6e6f7420756e7374616b65207460448201527f6865207374616b696e6720746f6b656e00000000000000000000000000000000606482015260840161067a565b600054610d16906001600160a01b0384811691168361155d565b604080516001600160a01b0384168152602081018390527f8c1256b8896378cd5044f80c202f9772b9d77dc85c8a6eb51967210b09bfaa289101610929565b610d5d611486565b610af7611665565b610d6d61169e565b336001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001614610df05760405162461bcd60e51b815260206004820152602260248201527f5374616b696e67526577617264733a204f6e6c792052657761726420457363726044820152616f7760f01b606482015260840161067a565b81610df9611411565b600b55610e04610c36565b600a556001600160a01b03811615610e4b57610e1f816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b60008211610e9b5760405162461bcd60e51b815260206004820152601e60248201527f5374616b696e67526577617264733a2043616e6e6f74207374616b6520300000604482015260640161067a565b6001600160a01b03831660009081526004602052604081208054849290610ec3908490611b09565b90915550506001600160a01b03831660009081526005602052604081208054849290610ef0908490611b09565b925050819055508160066000828254610f099190611b09565b90915550506040518281526001600160a01b038416907f945856e466506640ce955f1ec0de49513761175bad680d8503f7c8d45beabb209060200160405180910390a2505050565b610f59611506565b610f6161169e565b33610f6a611411565b600b55610f75610c36565b600a556001600160a01b03811615610fbc57610f90816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b6000821161100c5760405162461bcd60e51b815260206004820152601e60248201527f5374616b696e67526577617264733a2043616e6e6f74207374616b6520300000604482015260640161067a565b816006600082825461101e9190611b09565b90915550503360009081526004602052604081208054849290611042908490611b09565b9091555061107d90506001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000163330856116f1565b60405182815233907f9e71bc8eea02a63969f509818f2dafb9254532904319f9dbda79b67bd34a5f3d90602001610779565b6110b7611506565b336001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000161461113a5760405162461bcd60e51b815260206004820152602260248201527f5374616b696e67526577617264733a204f6e6c792052657761726420457363726044820152616f7760f01b606482015260840161067a565b81611143611411565b600b5561114e610c36565b600a556001600160a01b0381161561119557611169816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b600082116111e55760405162461bcd60e51b815260206004820181905260248201527f5374616b696e67526577617264733a2043616e6e6f7420556e7374616b652030604482015260640161067a565b6001600160a01b03831660009081526005602052604090205482111561124d5760405162461bcd60e51b815260206004820152601e60248201527f5374616b696e67526577617264733a20496e76616c696420416d6f756e740000604482015260640161067a565b6001600160a01b03831660009081526004602052604081208054849290611275908490611abd565b90915550506001600160a01b038316600090815260056020526040812080548492906112a2908490611abd565b9250508190555081600660008282546112bb9190611abd565b9091555050604080516001600160a01b0385168152602081018490527fbd0d30ac1729a6f57b09c27c8f39102f2704fbbf708747dcd198e45cf27f5282910160405180910390a15061130d6001600255565b5050565b611319611486565b60075442116113dc5760405162461bcd60e51b815260206004820152606860248201527f5374616b696e67526577617264733a2050726576696f7573207265776172647360448201527f20706572696f64206d75737420626520636f6d706c657465206265666f72652060648201527f6368616e67696e6720746865206475726174696f6e20666f7220746865206e6560848201527f7720706572696f6400000000000000000000000000000000000000000000000060a482015260c40161067a565b60098190556040518181527ffb46ca5a5e06d4540d6387b930a7c978bce0db5f449ec6b3f5d07c6e1d44f2d3906020016105a9565b60006006546000036114245750600b5490565b600654600854600a54611435610c36565b61143f9190611abd565b6114499190611ad0565b61145b90670de0b6b3a7640000611ad0565b6114659190611ae7565b600b546105c69190611b09565b61147e6102cc33610af9565b610af7610935565b6000546001600160a01b03163314610af75760405162461bcd60e51b815260206004820152602f60248201527f4f6e6c792074686520636f6e7472616374206f776e6572206d6179207065726660448201527f6f726d207468697320616374696f6e0000000000000000000000000000000000606482015260840161067a565b60028054036115575760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640161067a565b60028055565b6040516001600160a01b0383166024820152604481018290526116069084907fa9059cbb00000000000000000000000000000000000000000000000000000000906064015b60408051601f198184030181529190526020810180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff167fffffffff0000000000000000000000000000000000000000000000000000000090931692909217909152611748565b505050565b61161361169e565b6003805460ff191660011790557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586116483390565b6040516001600160a01b03909116815260200160405180910390a1565b61166d61182d565b6003805460ff191690557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa33611648565b60035460ff1615610af75760405162461bcd60e51b815260206004820152601060248201527f5061757361626c653a2070617573656400000000000000000000000000000000604482015260640161067a565b6040516001600160a01b03808516602483015283166044820152606481018290526117429085907f23b872dd00000000000000000000000000000000000000000000000000000000906084016115a2565b50505050565b600061179d826040518060400160405280602081526020017f5361666545524332303a206c6f772d6c6576656c2063616c6c206661696c6564815250856001600160a01b031661187f9092919063ffffffff16565b80519091501561160657808060200190518101906117bb9190611b1c565b6116065760405162461bcd60e51b815260206004820152602a60248201527f5361666545524332303a204552433230206f7065726174696f6e20646964206e60448201527f6f74207375636365656400000000000000000000000000000000000000000000606482015260840161067a565b60035460ff16610af75760405162461bcd60e51b815260206004820152601460248201527f5061757361626c653a206e6f7420706175736564000000000000000000000000604482015260640161067a565b606061188e8484600085611896565b949350505050565b60608247101561190e5760405162461bcd60e51b815260206004820152602660248201527f416464726573733a20696e73756666696369656e742062616c616e636520666f60448201527f722063616c6c0000000000000000000000000000000000000000000000000000606482015260840161067a565b600080866001600160a01b0316858760405161192a9190611b62565b60006040518083038185875af1925050503d8060008114611967576040519150601f19603f3d011682016040523d82523d6000602084013e61196c565b606091505b509150915061197d87838387611988565b979650505050505050565b606083156119f75782516000036119f0576001600160a01b0385163b6119f05760405162461bcd60e51b815260206004820152601d60248201527f416464726573733a2063616c6c20746f206e6f6e2d636f6e7472616374000000604482015260640161067a565b508161188e565b61188e8383815115611a0c5781518083602001fd5b8060405162461bcd60e51b815260040161067a9190611b7e565b80356001600160a01b0381168114611a3d57600080fd5b919050565b600060208284031215611a5457600080fd5b611a5d82611a26565b9392505050565b600060208284031215611a7657600080fd5b5035919050565b60008060408385031215611a9057600080fd5b611a9983611a26565b946020939093013593505050565b634e487b7160e01b600052601160045260246000fd5b8181038181111561054457610544611aa7565b808202811582820484141761054457610544611aa7565b600082611b0457634e487b7160e01b600052601260045260246000fd5b500490565b8082018082111561054457610544611aa7565b600060208284031215611b2e57600080fd5b81518015158114611a5d57600080fd5b60005b83811015611b59578181015183820152602001611b41565b50506000910152565b60008251611b74818460208701611b3e565b9190910192915050565b6020815260008251806020840152611b9d816040850160208701611b3e565b601f01601f1916919091016040019291505056fea2646970667358221220ec28731509733dace8f45fb7adab1c623ad2d2df2ee0eba5bb084d4aab379d0a64736f6c63430008130033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106102255760003560e01c806380faa57d1161012a578063c40dd66f116100bd578063cd3daf9d1161008c578063e9fad8ee11610071578063e9fad8ee14610495578063ebe2b12b1461049d578063fc0c546a146104a657600080fd5b8063cd3daf9d14610484578063df136d651461048c57600080fd5b8063c40dd66f1461042e578063c8f33c9114610455578063c9c7da161461045e578063cc1a378f1461047157600080fd5b80638da5cb5b116100f95780638da5cb5b146103ce578063985134fb146103e1578063a430be6c146103f4578063a694fc3a1461041b57600080fd5b806380faa57d1461038b5780638980f11f1461039357806389997f9a146103a65780638b876347146103ae57600080fd5b80633c6b16ab116101bd5780635c975abb1161018c57806370a082311161017157806370a082311461035157806379ba50971461037a5780637b0a47ee1461038257600080fd5b80635c975abb146103335780636079916f1461034957600080fd5b80633c6b16ab146102da5780633d18b912146102ed578063514a16c9146102f557806353a47bb71461030857600080fd5b806318160ddd116101f957806318160ddd146102ae5780631c1f78eb146102b65780632e17de78146102be578063386a9525146102d157600080fd5b80628cc2621461022a578063057a601b146102505780630700037d146102795780631627540c14610299575b600080fd5b61023d610238366004611a42565b6104cd565b6040519081526020015b60405180910390f35b61023d61025e366004611a42565b6001600160a01b031660009081526005602052604090205490565b61023d610287366004611a42565b600d6020526000908152604090205481565b6102ac6102a7366004611a42565b61054a565b005b60065461023d565b61023d6105b4565b6102ac6102cc366004611a64565b6105cb565b61023d60095481565b6102ac6102e8366004611a64565b61078f565b6102ac610935565b61023d610303366004611a42565b610af9565b60015461031b906001600160a01b031681565b6040516001600160a01b039091168152602001610247565b60035460ff166040519015158152602001610247565b6102ac610b27565b61023d61035f366004611a42565b6001600160a01b031660009081526004602052604090205490565b6102ac610b37565b61023d60085481565b61023d610c36565b6102ac6103a1366004611a7d565b610c4d565b6102ac610d55565b61023d6103bc366004611a42565b600c6020526000908152604090205481565b60005461031b906001600160a01b031681565b6102ac6103ef366004611a7d565b610d65565b61031b7f000000000000000000000000000000000000000000000000000000000000000081565b6102ac610429366004611a64565b610f51565b61031b7f000000000000000000000000000000000000000000000000000000000000000081565b61023d600a5481565b6102ac61046c366004611a7d565b6110af565b6102ac61047f366004611a64565b611311565b61023d611411565b61023d600b5481565b6102ac611472565b61023d60075481565b61031b7f000000000000000000000000000000000000000000000000000000000000000081565b6001600160a01b0381166000908152600d6020908152604080832054600c909252822054670de0b6b3a764000090610503611411565b61050d9190611abd565b6001600160a01b0385166000908152600460205260409020546105309190611ad0565b61053a9190611ae7565b6105449190611b09565b92915050565b610552611486565b6001805473ffffffffffffffffffffffffffffffffffffffff19166001600160a01b0383169081179091556040519081527f906a1c6bd7e3091ea86693dd029a831c19049ce77f1dce2ce0bab1cacbabce22906020015b60405180910390a150565b60006009546008546105c69190611ad0565b905090565b6105d3611506565b336105dc611411565b600b556105e7610c36565b600a556001600160a01b0381161561062e57610602816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b600082116106835760405162461bcd60e51b815260206004820181905260248201527f5374616b696e67526577617264733a2043616e6e6f7420556e7374616b65203060448201526064015b60405180910390fd5b61068c33610af9565b8211156106db5760405162461bcd60e51b815260206004820152601e60248201527f5374616b696e67526577617264733a20496e76616c696420416d6f756e740000604482015260640161067a565b81600660008282546106ed9190611abd565b90915550503360009081526004602052604081208054849290610711908490611abd565b9091555061074b90506001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016338461155d565b60405182815233907f0f5bb82176feb1b5e747e28471aa92156a04d9f3ab9f45f28e2d704232b93f75906020015b60405180910390a25061078c6001600255565b50565b336001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000161461082c5760405162461bcd60e51b8152602060048201526024808201527f5374616b696e67526577617264733a204f6e6c7920537570706c79205363686560448201527f64756c6500000000000000000000000000000000000000000000000000000000606482015260840161067a565b6000610836611411565b600b55610841610c36565b600a556001600160a01b038116156108885761085c816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b60075442106108a65760095461089e9083611ae7565b6008556108e8565b6000426007546108b69190611abd565b90506000600854826108c89190611ad0565b6009549091506108d88286611b09565b6108e29190611ae7565b60085550505b42600a8190556009546108fa91611b09565b6007556040518281527fde88a922e0d3b88b24e9623efeb464919c6bf9f66857a65e2bfcf2ce87a9433d906020015b60405180910390a15050565b61093d611506565b33610946611411565b600b55610951610c36565b600a556001600160a01b038116156109985761096c816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b336000908152600d60205260409020548015610aeb57336000908152600d6020526040812055610a127f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03167f00000000000000000000000000000000000000000000000000000000000000008361155d565b6040517f1bb47b44000000000000000000000000000000000000000000000000000000008152336004820152602481018290526301dfe20060448201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031690631bb47b4490606401600060405180830381600087803b158015610a9d57600080fd5b505af1158015610ab1573d6000803e3d6000fd5b50506040518381523392507fe2403640ba68fed3a2f88b7557551d1993f84b99bb10ff833f0cf8db0c5e0486915060200160405180910390a25b5050610af76001600255565b565b6001600160a01b03811660009081526005602090815260408083205460049092528220546105449190611abd565b610b2f611486565b610af761160b565b6001546001600160a01b03163314610bb75760405162461bcd60e51b815260206004820152603560248201527f596f75206d757374206265206e6f6d696e61746564206265666f726520796f7560448201527f2063616e20616363657074206f776e6572736869700000000000000000000000606482015260840161067a565b600054600154604080516001600160a01b0393841681529290911660208301527fb532073b38c83145e3e5135377a08bf9aab55bc0fd7c1179cd4fb995d2a5159c910160405180910390a1600180546000805473ffffffffffffffffffffffffffffffffffffffff199081166001600160a01b03841617909155169055565b60006007544210610c48575060075490565b504290565b610c55611486565b7f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b031603610cfc5760405162461bcd60e51b815260206004820152603060248201527f5374616b696e67526577617264733a2043616e6e6f7420756e7374616b65207460448201527f6865207374616b696e6720746f6b656e00000000000000000000000000000000606482015260840161067a565b600054610d16906001600160a01b0384811691168361155d565b604080516001600160a01b0384168152602081018390527f8c1256b8896378cd5044f80c202f9772b9d77dc85c8a6eb51967210b09bfaa289101610929565b610d5d611486565b610af7611665565b610d6d61169e565b336001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001614610df05760405162461bcd60e51b815260206004820152602260248201527f5374616b696e67526577617264733a204f6e6c792052657761726420457363726044820152616f7760f01b606482015260840161067a565b81610df9611411565b600b55610e04610c36565b600a556001600160a01b03811615610e4b57610e1f816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b60008211610e9b5760405162461bcd60e51b815260206004820152601e60248201527f5374616b696e67526577617264733a2043616e6e6f74207374616b6520300000604482015260640161067a565b6001600160a01b03831660009081526004602052604081208054849290610ec3908490611b09565b90915550506001600160a01b03831660009081526005602052604081208054849290610ef0908490611b09565b925050819055508160066000828254610f099190611b09565b90915550506040518281526001600160a01b038416907f945856e466506640ce955f1ec0de49513761175bad680d8503f7c8d45beabb209060200160405180910390a2505050565b610f59611506565b610f6161169e565b33610f6a611411565b600b55610f75610c36565b600a556001600160a01b03811615610fbc57610f90816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b6000821161100c5760405162461bcd60e51b815260206004820152601e60248201527f5374616b696e67526577617264733a2043616e6e6f74207374616b6520300000604482015260640161067a565b816006600082825461101e9190611b09565b90915550503360009081526004602052604081208054849290611042908490611b09565b9091555061107d90506001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000163330856116f1565b60405182815233907f9e71bc8eea02a63969f509818f2dafb9254532904319f9dbda79b67bd34a5f3d90602001610779565b6110b7611506565b336001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000161461113a5760405162461bcd60e51b815260206004820152602260248201527f5374616b696e67526577617264733a204f6e6c792052657761726420457363726044820152616f7760f01b606482015260840161067a565b81611143611411565b600b5561114e610c36565b600a556001600160a01b0381161561119557611169816104cd565b6001600160a01b0382166000908152600d6020908152604080832093909355600b54600c909152919020555b600082116111e55760405162461bcd60e51b815260206004820181905260248201527f5374616b696e67526577617264733a2043616e6e6f7420556e7374616b652030604482015260640161067a565b6001600160a01b03831660009081526005602052604090205482111561124d5760405162461bcd60e51b815260206004820152601e60248201527f5374616b696e67526577617264733a20496e76616c696420416d6f756e740000604482015260640161067a565b6001600160a01b03831660009081526004602052604081208054849290611275908490611abd565b90915550506001600160a01b038316600090815260056020526040812080548492906112a2908490611abd565b9250508190555081600660008282546112bb9190611abd565b9091555050604080516001600160a01b0385168152602081018490527fbd0d30ac1729a6f57b09c27c8f39102f2704fbbf708747dcd198e45cf27f5282910160405180910390a15061130d6001600255565b5050565b611319611486565b60075442116113dc5760405162461bcd60e51b815260206004820152606860248201527f5374616b696e67526577617264733a2050726576696f7573207265776172647360448201527f20706572696f64206d75737420626520636f6d706c657465206265666f72652060648201527f6368616e67696e6720746865206475726174696f6e20666f7220746865206e6560848201527f7720706572696f6400000000000000000000000000000000000000000000000060a482015260c40161067a565b60098190556040518181527ffb46ca5a5e06d4540d6387b930a7c978bce0db5f449ec6b3f5d07c6e1d44f2d3906020016105a9565b60006006546000036114245750600b5490565b600654600854600a54611435610c36565b61143f9190611abd565b6114499190611ad0565b61145b90670de0b6b3a7640000611ad0565b6114659190611ae7565b600b546105c69190611b09565b61147e6102cc33610af9565b610af7610935565b6000546001600160a01b03163314610af75760405162461bcd60e51b815260206004820152602f60248201527f4f6e6c792074686520636f6e7472616374206f776e6572206d6179207065726660448201527f6f726d207468697320616374696f6e0000000000000000000000000000000000606482015260840161067a565b60028054036115575760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640161067a565b60028055565b6040516001600160a01b0383166024820152604481018290526116069084907fa9059cbb00000000000000000000000000000000000000000000000000000000906064015b60408051601f198184030181529190526020810180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff167fffffffff0000000000000000000000000000000000000000000000000000000090931692909217909152611748565b505050565b61161361169e565b6003805460ff191660011790557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586116483390565b6040516001600160a01b03909116815260200160405180910390a1565b61166d61182d565b6003805460ff191690557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa33611648565b60035460ff1615610af75760405162461bcd60e51b815260206004820152601060248201527f5061757361626c653a2070617573656400000000000000000000000000000000604482015260640161067a565b6040516001600160a01b03808516602483015283166044820152606481018290526117429085907f23b872dd00000000000000000000000000000000000000000000000000000000906084016115a2565b50505050565b600061179d826040518060400160405280602081526020017f5361666545524332303a206c6f772d6c6576656c2063616c6c206661696c6564815250856001600160a01b031661187f9092919063ffffffff16565b80519091501561160657808060200190518101906117bb9190611b1c565b6116065760405162461bcd60e51b815260206004820152602a60248201527f5361666545524332303a204552433230206f7065726174696f6e20646964206e60448201527f6f74207375636365656400000000000000000000000000000000000000000000606482015260840161067a565b60035460ff16610af75760405162461bcd60e51b815260206004820152601460248201527f5061757361626c653a206e6f7420706175736564000000000000000000000000604482015260640161067a565b606061188e8484600085611896565b949350505050565b60608247101561190e5760405162461bcd60e51b815260206004820152602660248201527f416464726573733a20696e73756666696369656e742062616c616e636520666f60448201527f722063616c6c0000000000000000000000000000000000000000000000000000606482015260840161067a565b600080866001600160a01b0316858760405161192a9190611b62565b60006040518083038185875af1925050503d8060008114611967576040519150601f19603f3d011682016040523d82523d6000602084013e61196c565b606091505b509150915061197d87838387611988565b979650505050505050565b606083156119f75782516000036119f0576001600160a01b0385163b6119f05760405162461bcd60e51b815260206004820152601d60248201527f416464726573733a2063616c6c20746f206e6f6e2d636f6e7472616374000000604482015260640161067a565b508161188e565b61188e8383815115611a0c5781518083602001fd5b8060405162461bcd60e51b815260040161067a9190611b7e565b80356001600160a01b0381168114611a3d57600080fd5b919050565b600060208284031215611a5457600080fd5b611a5d82611a26565b9392505050565b600060208284031215611a7657600080fd5b5035919050565b60008060408385031215611a9057600080fd5b611a9983611a26565b946020939093013593505050565b634e487b7160e01b600052601160045260246000fd5b8181038181111561054457610544611aa7565b808202811582820484141761054457610544611aa7565b600082611b0457634e487b7160e01b600052601260045260246000fd5b500490565b8082018082111561054457610544611aa7565b600060208284031215611b2e57600080fd5b81518015158114611a5d57600080fd5b60005b83811015611b59578181015183820152602001611b41565b50506000910152565b60008251611b74818460208701611b3e565b9190910192915050565b6020815260008251806020840152611b9d816040850160208701611b3e565b601f01601f1916919091016040019291505056fea2646970667358221220ec28731509733dace8f45fb7adab1c623ad2d2df2ee0eba5bb084d4aab379d0a64736f6c63430008130033",
+  "devdoc": {
+    "events": {
+      "EscrowStaked(address,uint256)": {
+        "params": {
+          "amount": ": amount staked",
+          "user": ": owner of escrowed tokens address"
+        }
+      },
+      "EscrowUnstaked(address,uint256)": {
+        "params": {
+          "amount": ": amount unstaked",
+          "user": ": owner of escrowed tokens address"
+        }
+      },
+      "Paused(address)": {
+        "details": "Emitted when the pause is triggered by `account`."
+      },
+      "Recovered(address,uint256)": {
+        "params": {
+          "amount": ": amount of token recovered",
+          "token": ": address of token recovered"
+        }
+      },
+      "RewardAdded(uint256)": {
+        "params": {
+          "reward": ": amount to be distributed over applicable rewards duration"
+        }
+      },
+      "RewardPaid(address,uint256)": {
+        "params": {
+          "reward": ": amount of reward token claimed",
+          "user": ": address of user claiming rewards"
+        }
+      },
+      "RewardsDurationUpdated(uint256)": {
+        "params": {
+          "newDuration": ": denoted in seconds"
+        }
+      },
+      "Staked(address,uint256)": {
+        "params": {
+          "amount": ": amount staked",
+          "user": ": staker address"
+        }
+      },
+      "Unpaused(address)": {
+        "details": "Emitted when the pause is lifted by `account`."
+      },
+      "Unstaked(address,uint256)": {
+        "params": {
+          "amount": ": amount unstaked",
+          "user": ": address of user unstaking"
+        }
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "balanceOf(address)": {
+        "params": {
+          "account": ": address of potential staker"
+        },
+        "returns": {
+          "_0": "amount of tokens staked by account"
+        }
+      },
+      "constructor": {
+        "details": "owner set to address that deployed StakingRewards",
+        "params": {
+          "_rewardEscrow": ": escrow contract which holds (and may stake) reward tokens",
+          "_supplySchedule": ": handles reward token minting logic",
+          "_token": ": token used for staking and for rewards"
+        }
+      },
+      "earned(address)": {
+        "params": {
+          "account": ": address of account earned amount is being calculated for"
+        }
+      },
+      "escrowedBalanceOf(address)": {
+        "params": {
+          "account": "address to check the escrowed tokens staked"
+        },
+        "returns": {
+          "_0": "amount of escrowed tokens staked"
+        }
+      },
+      "getReward()": {
+        "details": "rewards are escrowed in RewardEscrowupdateReward() called prior to function logic"
+      },
+      "getRewardForDuration()": {
+        "returns": {
+          "_0": "rewards for the duration specified by rewardsDuration"
+        }
+      },
+      "lastTimeRewardApplicable()": {
+        "returns": {
+          "_0": "timestamp of the last time rewards are applicable"
+        }
+      },
+      "nonEscrowedBalanceOf(address)": {
+        "params": {
+          "account": "address to check the non-escrowed tokens staked"
+        },
+        "returns": {
+          "_0": "amount of non-escrowed tokens staked"
+        }
+      },
+      "notifyRewardAmount(uint256)": {
+        "details": "updateReward() called prior to function logic (with zero address)",
+        "params": {
+          "reward": ": amount of token to be distributed over a period"
+        }
+      },
+      "pauseStakingRewards()": {
+        "details": "Triggers stopped state"
+      },
+      "paused()": {
+        "details": "Returns true if the contract is paused, and false otherwise."
+      },
+      "recoverERC20(address,uint256)": {
+        "params": {
+          "tokenAddress": ": address of token to be recovered",
+          "tokenAmount": ": amount of token to be recovered"
+        }
+      },
+      "rewardPerToken()": {
+        "returns": {
+          "_0": "running sum of reward per total tokens staked"
+        }
+      },
+      "setRewardsDuration(uint256)": {
+        "params": {
+          "_rewardsDuration": ": denoted in seconds"
+        }
+      },
+      "stake(uint256)": {
+        "details": "updateReward() called prior to function logic",
+        "params": {
+          "amount": ": amount to stake"
+        }
+      },
+      "stakeEscrow(address,uint256)": {
+        "details": "updateReward() called prior to function logicmsg.sender NOT used (account is used)",
+        "params": {
+          "account": ": address which owns token",
+          "amount": ": amount to stake"
+        }
+      },
+      "totalSupply()": {
+        "details": "returns staked tokens which will likely not be equal to total tokens in the contract since reward and staking tokens are the same",
+        "returns": {
+          "_0": "total amount of tokens that are being staked"
+        }
+      },
+      "unpauseStakingRewards()": {
+        "details": "Returns to normal state."
+      },
+      "unstake(uint256)": {
+        "details": "updateReward() called prior to function logic",
+        "params": {
+          "amount": ": amount to unstake"
+        }
+      },
+      "unstakeEscrow(address,uint256)": {
+        "details": "updateReward() called prior to function logicmsg.sender NOT used (account is used)",
+        "params": {
+          "account": ": address which owns token",
+          "amount": ": amount to unstake"
+        }
+      }
+    },
+    "stateVariables": {
+      "balances": {
+        "details": "this includes escrowed tokens stake"
+      }
+    },
+    "title": "DTORO Staking Rewards to DexToro",
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "EscrowStaked(address,uint256)": {
+        "notice": "emitted when escrow staked"
+      },
+      "EscrowUnstaked(address,uint256)": {
+        "notice": "emitted when staked escrow tokens are unstaked"
+      },
+      "Recovered(address,uint256)": {
+        "notice": "emitted when tokens are recovered from this contract"
+      },
+      "RewardAdded(uint256)": {
+        "notice": "update reward rate"
+      },
+      "RewardPaid(address,uint256)": {
+        "notice": "emitted when user claims rewards"
+      },
+      "RewardsDurationUpdated(uint256)": {
+        "notice": "emitted when rewards duration changes"
+      },
+      "Staked(address,uint256)": {
+        "notice": "emitted when user stakes tokens"
+      },
+      "Unstaked(address,uint256)": {
+        "notice": "emitted when user unstakes tokens"
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "constructor": {
+        "notice": "configure StakingRewards state"
+      },
+      "earned(address)": {
+        "notice": "determine how much reward token an account has earned thus far"
+      },
+      "escrowedBalanceOf(address)": {
+        "notice": "Getter function for number of staked escrow tokens"
+      },
+      "exit()": {
+        "notice": "unstake all available staked non-escrowed tokens and claim any rewards"
+      },
+      "getReward()": {
+        "notice": "caller claims any rewards generated from staking"
+      },
+      "lastUpdateTime()": {
+        "notice": "track last time the rewards were updated"
+      },
+      "nonEscrowedBalanceOf(address)": {
+        "notice": "Getter function for number of staked non-escrow tokens"
+      },
+      "notifyRewardAmount(uint256)": {
+        "notice": "configure reward rate"
+      },
+      "periodFinish()": {
+        "notice": "marks applicable reward period finish time"
+      },
+      "recoverERC20(address,uint256)": {
+        "notice": "added to support recovering LP Rewards from other systems such as BAL to be distributed to holders"
+      },
+      "rewardEscrow()": {
+        "notice": "escrow contract which holds (and may stake) reward tokens"
+      },
+      "rewardPerToken()": {
+        "notice": "calculate running sum of reward per total tokens staked at this specific time"
+      },
+      "rewardPerTokenStored()": {
+        "notice": "summation of rewardRate divided by total staked tokens"
+      },
+      "rewardRate()": {
+        "notice": "amount of tokens minted per second"
+      },
+      "rewards(address)": {
+        "notice": "track rewards for a given user which changes when a user stakes, unstakes, or claims rewards"
+      },
+      "rewardsDuration()": {
+        "notice": "period for rewards"
+      },
+      "setRewardsDuration(uint256)": {
+        "notice": "set rewards duration"
+      },
+      "stake(uint256)": {
+        "notice": "stake token"
+      },
+      "stakeEscrow(address,uint256)": {
+        "notice": "stake escrowed token"
+      },
+      "supplySchedule()": {
+        "notice": "handles reward token minting logic"
+      },
+      "token()": {
+        "notice": "token used for BOTH staking and rewards"
+      },
+      "unstake(uint256)": {
+        "notice": "unstake token"
+      },
+      "unstakeEscrow(address,uint256)": {
+        "notice": "unstake escrowed token"
+      },
+      "userRewardPerTokenPaid(address)": {
+        "notice": "represents the rewardPerToken value the last time the stake calculated earned() rewards"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 17258,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 17260,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "nominatedOwner",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 4814,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "_status",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 4713,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "_paused",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_bool"
+      },
+      {
+        "astId": 10926,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "balances",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 10931,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "escrowedBalances",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 10934,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "_totalSupply",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10938,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "periodFinish",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10942,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "rewardRate",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10946,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "rewardsDuration",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10949,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "lastUpdateTime",
+        "offset": 0,
+        "slot": "10",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10952,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "rewardPerTokenStored",
+        "offset": 0,
+        "slot": "11",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10957,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "userRewardPerTokenPaid",
+        "offset": 0,
+        "slot": "12",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 10962,
+        "contract": "contracts/StakingRewards.sol:StakingRewards",
+        "label": "rewards",
+        "offset": 0,
+        "slot": "13",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

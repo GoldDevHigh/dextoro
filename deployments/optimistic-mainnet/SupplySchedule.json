@@ -1,0 +1,847 @@
+{
+  "address": "0x77A5BE78380E0B032ed146785155eFDe1ea393d9",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_treasuryDAO",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAddress",
+          "type": "address"
+        }
+      ],
+      "name": "DexToroUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newRewardAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "MinterRewardUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "oldOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnerChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnerNominated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAddress",
+          "type": "address"
+        }
+      ],
+      "name": "StakingRewardsUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "supplyMinted",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "numberOfWeeksIssued",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "lastMintEvent",
+          "type": "uint256"
+        }
+      ],
+      "name": "SupplyMinted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newPercentage",
+          "type": "uint256"
+        }
+      ],
+      "name": "TradingRewardsDiversionUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAddress",
+          "type": "address"
+        }
+      ],
+      "name": "TradingRewardsUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "treasuryDAO",
+          "type": "address"
+        }
+      ],
+      "name": "TreasuryDAOSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newPercentage",
+          "type": "uint256"
+        }
+      ],
+      "name": "TreasuryDiversionUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "DECAY_RATE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "INITIAL_SUPPLY",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "INITIAL_WEEKLY_SUPPLY",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_MINTER_REWARD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MINT_BUFFER",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MINT_PERIOD_DURATION",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SUPPLY_DECAY_END",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SUPPLY_DECAY_START",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TERMINAL_SUPPLY_RATE_ANNUAL",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dextoro",
+      "outputs": [
+        {
+          "internalType": "contract IDexToro",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "inflationStartDate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isMintable",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastMintEvent",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "mintableSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "minterReward",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "nominateNewOwner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nominatedOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IDexToro",
+          "name": "_dextoro",
+          "type": "address"
+        }
+      ],
+      "name": "setDexToro",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMinterReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_stakingRewards",
+          "type": "address"
+        }
+      ],
+      "name": "setStakingRewards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_tradingRewards",
+          "type": "address"
+        }
+      ],
+      "name": "setTradingRewards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tradingRewardsDiversion",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTradingRewardsDiversion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_treasuryDAO",
+          "type": "address"
+        }
+      ],
+      "name": "setTreasuryDAO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_treasuryDiversion",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTreasuryDiversion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakingRewards",
+      "outputs": [
+        {
+          "internalType": "contract IStakingRewards",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "totalSupply",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "numOfWeeks",
+          "type": "uint256"
+        }
+      ],
+      "name": "terminalInflationSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "counter",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenDecaySupplyForWeek",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tradingRewards",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tradingRewardsDiversion",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "treasuryDAO",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "treasuryDiversion",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "weekCounter",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "weeksSinceLastIssuance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "9cd2b31d0e3cba1e11ec51f6d1e7e30f",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_treasuryDAO\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"DexToroUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newRewardAmount\",\"type\":\"uint256\"}],\"name\":\"MinterRewardUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"oldOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnerChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnerNominated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"StakingRewardsUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"supplyMinted\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"numberOfWeeksIssued\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"lastMintEvent\",\"type\":\"uint256\"}],\"name\":\"SupplyMinted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newPercentage\",\"type\":\"uint256\"}],\"name\":\"TradingRewardsDiversionUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"TradingRewardsUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"treasuryDAO\",\"type\":\"address\"}],\"name\":\"TreasuryDAOSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newPercentage\",\"type\":\"uint256\"}],\"name\":\"TreasuryDiversionUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"DECAY_RATE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INITIAL_SUPPLY\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INITIAL_WEEKLY_SUPPLY\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_MINTER_REWARD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MINT_BUFFER\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MINT_PERIOD_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"SUPPLY_DECAY_END\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"SUPPLY_DECAY_START\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TERMINAL_SUPPLY_RATE_ANNUAL\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"dextoro\",\"outputs\":[{\"internalType\":\"contract IDexToro\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"inflationStartDate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isMintable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastMintEvent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"mintableSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minterReward\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"nominateNewOwner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nominatedOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IDexToro\",\"name\":\"_dextoro\",\"type\":\"address\"}],\"name\":\"setDexToro\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"setMinterReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_stakingRewards\",\"type\":\"address\"}],\"name\":\"setStakingRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_tradingRewards\",\"type\":\"address\"}],\"name\":\"setTradingRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tradingRewardsDiversion\",\"type\":\"uint256\"}],\"name\":\"setTradingRewardsDiversion\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_treasuryDAO\",\"type\":\"address\"}],\"name\":\"setTreasuryDAO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_treasuryDiversion\",\"type\":\"uint256\"}],\"name\":\"setTreasuryDiversion\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stakingRewards\",\"outputs\":[{\"internalType\":\"contract IStakingRewards\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"totalSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"numOfWeeks\",\"type\":\"uint256\"}],\"name\":\"terminalInflationSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"counter\",\"type\":\"uint256\"}],\"name\":\"tokenDecaySupplyForWeek\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tradingRewards\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tradingRewardsDiversion\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"treasuryDAO\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"treasuryDiversion\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"weekCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"weeksSinceLastIssuance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"isMintable()\":{\"returns\":{\"_0\":\"boolean whether the MINT_PERIOD_DURATION (7 days) has passed since the lastMintEvent. \"}},\"mintableSupply()\":{\"returns\":{\"_0\":\"The amount of DTORO mintable for the inflationary supply\"}},\"setMinterReward(uint256)\":{\"params\":{\"amount\":\"the amount of DTORO to reward the minter. \"}},\"setTreasuryDAO(address)\":{\"details\":\"only owner may change address\"},\"terminalInflationSupply(uint256,uint256)\":{\"details\":\"Weekly compound rate based on number of weeks\",\"returns\":{\"_0\":\"A unit amount of terminal inflation supply\"}},\"tokenDecaySupplyForWeek(uint256)\":{\"details\":\"New token supply reduces by the decay rate each week calculated as supply = INITIAL_WEEKLY_SUPPLY * ()\",\"returns\":{\"_0\":\"A unit amount of decaying inflationary supply from the INITIAL_WEEKLY_SUPPLY\"}},\"weeksSinceLastIssuance()\":{\"details\":\"Take timeDiff in seconds (Dividend) and MINT_PERIOD_DURATION as (Divisor)\",\"returns\":{\"_0\":\"Calculate the numberOfWeeks since last mint rounded down to 1 week\"}}},\"version\":1},\"userdoc\":{\"events\":{\"DexToroUpdated(address)\":{\"notice\":\"Emitted when setDexToro is called changing the DexToro Proxy address*\"},\"MinterRewardUpdated(uint256)\":{\"notice\":\"Emitted when the DTORO minter reward amount is updated*\"},\"StakingRewardsUpdated(address)\":{\"notice\":\"Emitted when StakingRewards is changed*\"},\"SupplyMinted(uint256,uint256,uint256)\":{\"notice\":\"Emitted when the inflationary supply is minted*\"},\"TradingRewardsDiversionUpdated(uint256)\":{\"notice\":\"Emitted when trading rewards inflation share is changed*\"},\"TradingRewardsUpdated(address)\":{\"notice\":\"Emitted when TradingRewards is changed*\"},\"TreasuryDAOSet(address)\":{\"notice\":\"Emitted when treasuryDAO address is changed*\"},\"TreasuryDiversionUpdated(uint256)\":{\"notice\":\"Emitted when treasury inflation share is changed*\"}},\"kind\":\"user\",\"methods\":{\"mint()\":{\"notice\":\"Mints new inflationary supply weekly New DTORO is distributed between the minter, treasury, and StakingRewards contract \"},\"setDexToro(address)\":{\"notice\":\"Set the DexToro should it ever change. SupplySchedule requires DexToro address as it has the authority to record mint event. \"},\"setMinterReward(uint256)\":{\"notice\":\"Sets the reward amount of DTORO for the caller of the public function DexToro.mint(). This incentivises anyone to mint the inflationary supply and the mintr Reward will be deducted from the inflationary supply and sent to the caller.\"},\"setTreasuryDAO(address)\":{\"notice\":\"set treasuryDAO address\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/SupplySchedule.sol\":\"SupplySchedule\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"contracts/SupplySchedule.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\n// Inheritance\\r\\nimport \\\"./utils/Owned.sol\\\";\\r\\nimport \\\"./interfaces/ISupplySchedule.sol\\\";\\r\\n\\r\\n// Libraries\\r\\nimport \\\"./libraries/SafeDecimalMath.sol\\\";\\r\\nimport \\\"./libraries/Math.sol\\\";\\r\\n\\r\\n// Internal references\\r\\nimport \\\"./interfaces/IERC20.sol\\\";\\r\\nimport \\\"./interfaces/IDexToro.sol\\\";\\r\\nimport \\\"./interfaces/IStakingRewards.sol\\\";\\r\\n\\r\\ncontract SupplySchedule is Owned, ISupplySchedule {\\r\\n    using SafeDecimalMath for uint;\\r\\n    using Math for uint;\\r\\n\\r\\n    IDexToro public dextoro;\\r\\n    IStakingRewards public stakingRewards;\\r\\n    address public tradingRewards;\\r\\n\\r\\n    // Time of the last inflation supply mint event\\r\\n    uint public lastMintEvent;\\r\\n\\r\\n    // Counter for number of weeks since the start of supply inflation\\r\\n    uint public weekCounter;\\r\\n\\r\\n    // The number of DTORO rewarded to the caller of DexToro.mint()\\r\\n    uint public minterReward = 1e18;\\r\\n\\r\\n    uint public constant INITIAL_SUPPLY = 25000000e18;\\r\\n\\r\\n    // Initial Supply * 240% Initial Inflation Rate / 52 weeks.\\r\\n    uint public constant INITIAL_WEEKLY_SUPPLY = INITIAL_SUPPLY * 240 / 100 / 52;\\r\\n\\r\\n    // Max DTORO rewards for minter\\r\\n    uint public constant MAX_MINTER_REWARD = 20 * 1e18;\\r\\n\\r\\n    // How long each inflation period is before mint can be called\\r\\n    uint public constant MINT_PERIOD_DURATION = 1 weeks;\\r\\n\\r\\n    uint public immutable inflationStartDate;\\r\\n    uint public constant MINT_BUFFER = 1 days;\\r\\n    uint8 public constant SUPPLY_DECAY_START = 2; // Supply decay starts on the 2nd week of rewards\\r\\n    uint8 public constant SUPPLY_DECAY_END = 208; // Inclusive of SUPPLY_DECAY_END week.\\r\\n\\r\\n    // Weekly percentage decay of inflationary supply\\r\\n    uint public constant DECAY_RATE = 20500000000000000; // 2.05% weekly\\r\\n\\r\\n    // Percentage growth of terminal supply per annum\\r\\n    uint public constant TERMINAL_SUPPLY_RATE_ANNUAL = 10000000000000000; // 1.0% pa\\r\\n\\r\\n    uint public treasuryDiversion = 2000; // 20% to treasury\\r\\n    uint public tradingRewardsDiversion = 2000;\\r\\n\\r\\n    // notice treasury address may change\\r\\n    address public treasuryDAO;\\r\\n\\r\\n    /* ========== EVENTS ========== */\\r\\n    \\r\\n    /**\\r\\n     * @notice Emitted when the inflationary supply is minted\\r\\n     **/\\r\\n    event SupplyMinted(uint supplyMinted, uint numberOfWeeksIssued, uint lastMintEvent);\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when the DTORO minter reward amount is updated\\r\\n     **/\\r\\n    event MinterRewardUpdated(uint newRewardAmount);\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when setDexToro is called changing the DexToro Proxy address\\r\\n     **/\\r\\n    event DexToroUpdated(address newAddress);\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when treasury inflation share is changed\\r\\n     **/\\r\\n    event TreasuryDiversionUpdated(uint newPercentage);\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when trading rewards inflation share is changed\\r\\n     **/\\r\\n    event TradingRewardsDiversionUpdated(uint newPercentage);\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when StakingRewards is changed\\r\\n     **/\\r\\n    event StakingRewardsUpdated(address newAddress);\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when TradingRewards is changed\\r\\n     **/\\r\\n    event TradingRewardsUpdated(address newAddress);\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when treasuryDAO address is changed\\r\\n     **/\\r\\n    event TreasuryDAOSet(address treasuryDAO);\\r\\n\\r\\n    constructor(\\r\\n        address _owner,\\r\\n        address _treasuryDAO\\r\\n    ) Owned(_owner) {\\r\\n        treasuryDAO = _treasuryDAO;\\r\\n\\r\\n        inflationStartDate = block.timestamp; // inflation starts as soon as the contract is deployed.\\r\\n        lastMintEvent = block.timestamp;\\r\\n        weekCounter = 0;\\r\\n    }\\r\\n\\r\\n    // ========== VIEWS ==========\\r\\n\\r\\n    /**\\r\\n     * @return The amount of DTORO mintable for the inflationary supply\\r\\n     */\\r\\n    function mintableSupply() override public view returns (uint) {\\r\\n        uint totalAmount;\\r\\n\\r\\n        if (!isMintable()) {\\r\\n            return totalAmount;\\r\\n        }\\r\\n\\r\\n        uint remainingWeeksToMint = weeksSinceLastIssuance();\\r\\n\\r\\n        uint currentWeek = weekCounter;\\r\\n\\r\\n        // Calculate total mintable supply from exponential decay function\\r\\n        // The decay function stops after week 208\\r\\n        while (remainingWeeksToMint > 0) {\\r\\n            currentWeek++;\\r\\n\\r\\n            if (currentWeek < SUPPLY_DECAY_START) {\\r\\n                // If current week is before supply decay we add initial supply to mintableSupply\\r\\n                totalAmount = totalAmount + INITIAL_WEEKLY_SUPPLY;\\r\\n                remainingWeeksToMint--;\\r\\n            } else if (currentWeek <= SUPPLY_DECAY_END) {\\r\\n                // if current week before supply decay ends we add the new supply for the week\\r\\n                // diff between current week and (supply decay start week - 1)\\r\\n                uint decayCount = currentWeek - (SUPPLY_DECAY_START - 1);\\r\\n\\r\\n                totalAmount = totalAmount + tokenDecaySupplyForWeek(decayCount);\\r\\n                remainingWeeksToMint--;\\r\\n            } else {\\r\\n                // Terminal supply is calculated on the total supply of DexToro including any new supply\\r\\n                // We can compound the remaining week's supply at the fixed terminal rate\\r\\n                uint totalSupply = IERC20(dextoro).totalSupply();\\r\\n                uint currentTotalSupply = totalSupply + totalAmount;\\r\\n\\r\\n                totalAmount = totalAmount + terminalInflationSupply(currentTotalSupply, remainingWeeksToMint);\\r\\n                remainingWeeksToMint = 0;\\r\\n            }\\r\\n        }\\r\\n\\r\\n        return totalAmount;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return A unit amount of decaying inflationary supply from the INITIAL_WEEKLY_SUPPLY\\r\\n     * @dev New token supply reduces by the decay rate each week calculated as supply = INITIAL_WEEKLY_SUPPLY * ()\\r\\n     */\\r\\n    function tokenDecaySupplyForWeek(uint counter) public pure returns (uint) {\\r\\n        // Apply exponential decay function to number of weeks since\\r\\n        // start of inflation smoothing to calculate diminishing supply for the week.\\r\\n        uint effectiveDecay = (SafeDecimalMath.unit() - DECAY_RATE).powDecimal(counter);\\r\\n        uint supplyForWeek = INITIAL_WEEKLY_SUPPLY.multiplyDecimal(effectiveDecay);\\r\\n\\r\\n        return supplyForWeek;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return A unit amount of terminal inflation supply\\r\\n     * @dev Weekly compound rate based on number of weeks\\r\\n     */\\r\\n    function terminalInflationSupply(uint totalSupply, uint numOfWeeks) public pure returns (uint) {\\r\\n        // rate = (1 + weekly rate) ^ num of weeks\\r\\n        uint effectiveCompoundRate = (SafeDecimalMath.unit() + (TERMINAL_SUPPLY_RATE_ANNUAL / 52)).powDecimal(numOfWeeks);\\r\\n\\r\\n        // return Supply * (effectiveRate - 1) for extra supply to issue based on number of weeks\\r\\n        return totalSupply.multiplyDecimal(effectiveCompoundRate - SafeDecimalMath.unit());\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Take timeDiff in seconds (Dividend) and MINT_PERIOD_DURATION as (Divisor)\\r\\n     * @return Calculate the numberOfWeeks since last mint rounded down to 1 week\\r\\n     */\\r\\n    function weeksSinceLastIssuance() public view returns (uint) {\\r\\n        // Get weeks since lastMintEvent\\r\\n        // If lastMintEvent not set or 0, then start from inflation start date.\\r\\n        uint timeDiff = block.timestamp - lastMintEvent;\\r\\n        return timeDiff / MINT_PERIOD_DURATION;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return boolean whether the MINT_PERIOD_DURATION (7 days)\\r\\n     * has passed since the lastMintEvent.\\r\\n     * */\\r\\n    function isMintable() override public view returns (bool) {\\r\\n        return block.timestamp - lastMintEvent > MINT_PERIOD_DURATION;\\r\\n    }\\r\\n\\r\\n    // ========== MUTATIVE FUNCTIONS ==========\\r\\n\\r\\n    /**\\r\\n     * @notice Record the mint event from DexToro by incrementing the inflation\\r\\n     * week counter for the number of weeks minted (probabaly always 1)\\r\\n     * and store the time of the event.\\r\\n     * @param supplyMinted the amount of DTORO the total supply was inflated by.\\r\\n     * */\\r\\n    function recordMintEvent(uint supplyMinted) internal returns (bool) {\\r\\n        uint numberOfWeeksIssued = weeksSinceLastIssuance();\\r\\n\\r\\n        // add number of weeks minted to weekCounter\\r\\n        weekCounter = weekCounter + numberOfWeeksIssued;\\r\\n\\r\\n        // Update mint event to latest week issued (start date + number of weeks issued * seconds in week)\\r\\n        // 1 day time buffer is added so inflation is minted after feePeriod closes\\r\\n        lastMintEvent = inflationStartDate + (weekCounter * MINT_PERIOD_DURATION) + MINT_BUFFER;\\r\\n\\r\\n        emit SupplyMinted(supplyMinted, numberOfWeeksIssued, lastMintEvent);\\r\\n        return true;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @notice Mints new inflationary supply weekly\\r\\n     * New DTORO is distributed between the minter, treasury, and StakingRewards contract\\r\\n     * */\\r\\n    function mint() override external {\\r\\n        require(address(stakingRewards) != address(0), \\\"Staking rewards not set\\\");\\r\\n        require(tradingRewards != address(0), \\\"Trading rewards not set\\\");\\r\\n\\r\\n        uint supplyToMint = mintableSupply();\\r\\n        require(supplyToMint > 0, \\\"No supply is mintable\\\");\\r\\n\\r\\n        // record minting event before mutation to token supply\\r\\n        recordMintEvent(supplyToMint);\\r\\n\\r\\n        uint amountToDistribute = supplyToMint - minterReward;\\r\\n        uint amountToTreasury = amountToDistribute * treasuryDiversion / 10000;\\r\\n        uint amountToTradingRewards = amountToDistribute * tradingRewardsDiversion / 10000;\\r\\n        uint amountToStakingRewards = amountToDistribute - amountToTreasury - amountToTradingRewards;\\r\\n\\r\\n        dextoro.mint(treasuryDAO, amountToTreasury);\\r\\n        dextoro.mint(tradingRewards, amountToTradingRewards);\\r\\n        dextoro.mint(address(stakingRewards), amountToStakingRewards);\\r\\n        stakingRewards.notifyRewardAmount(amountToStakingRewards);\\r\\n        dextoro.mint(msg.sender, minterReward);\\r\\n    }\\r\\n\\r\\n    // ========== SETTERS ========== */\\r\\n\\r\\n    /**\\r\\n     * @notice Set the DexToro should it ever change.\\r\\n     * SupplySchedule requires DexToro address as it has the authority\\r\\n     * to record mint event.\\r\\n     * */\\r\\n    function setDexToro(IDexToro _dextoro) external onlyOwner {\\r\\n        require(address(_dextoro) != address(0), \\\"Address cannot be 0\\\");\\r\\n        dextoro = _dextoro;\\r\\n        emit DexToroUpdated(address(dextoro));\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @notice Sets the reward amount of DTORO for the caller of the public\\r\\n     * function DexToro.mint().\\r\\n     * This incentivises anyone to mint the inflationary supply and the mintr\\r\\n     * Reward will be deducted from the inflationary supply and sent to the caller.\\r\\n     * @param amount the amount of DTORO to reward the minter.\\r\\n     * */\\r\\n    function setMinterReward(uint amount) external onlyOwner {\\r\\n        require(amount <= MAX_MINTER_REWARD, \\\"SupplySchedule: Reward cannot exceed max minter reward\\\");\\r\\n        minterReward = amount;\\r\\n        emit MinterRewardUpdated(minterReward);\\r\\n    }\\r\\n\\r\\n    function setTreasuryDiversion(uint _treasuryDiversion) override external onlyOwner {\\r\\n        require(_treasuryDiversion + tradingRewardsDiversion < 10000, \\\"SupplySchedule: Cannot be more than 100%\\\");\\r\\n        treasuryDiversion = _treasuryDiversion;\\r\\n        emit TreasuryDiversionUpdated(_treasuryDiversion);\\r\\n    }\\r\\n\\r\\n    function setTradingRewardsDiversion(uint _tradingRewardsDiversion) override external onlyOwner {\\r\\n        require(_tradingRewardsDiversion + treasuryDiversion < 10000, \\\"SupplySchedule: Cannot be more than 100%\\\");\\r\\n        tradingRewardsDiversion = _tradingRewardsDiversion;\\r\\n        emit TradingRewardsDiversionUpdated(_tradingRewardsDiversion);\\r\\n    }\\r\\n\\r\\n    function setStakingRewards(address _stakingRewards) override external onlyOwner {\\r\\n        require(_stakingRewards != address(0), \\\"SupplySchedule: Invalid Address\\\");\\r\\n        stakingRewards = IStakingRewards(_stakingRewards);\\r\\n        emit StakingRewardsUpdated(_stakingRewards);\\r\\n    }\\r\\n\\r\\n    function setTradingRewards(address _tradingRewards) override external onlyOwner {\\r\\n        require(_tradingRewards != address(0), \\\"SupplySchedule: Invalid Address\\\");\\r\\n        tradingRewards = _tradingRewards;\\r\\n        emit TradingRewardsUpdated(_tradingRewards);\\r\\n    }\\r\\n\\r\\n    /// @notice set treasuryDAO address\\r\\n    /// @dev only owner may change address\\r\\n    function setTreasuryDAO(address _treasuryDAO) external onlyOwner {\\r\\n        require(_treasuryDAO != address(0), \\\"SupplySchedule: Zero Address\\\");\\r\\n        treasuryDAO = _treasuryDAO;\\r\\n        emit TreasuryDAOSet(treasuryDAO);\\r\\n    }\\r\\n}\",\"keccak256\":\"0x7c05736dfdffadef8e71cfd70e97f6dda47ee932d26ec74bf4c4a8e2425ef230\",\"license\":\"MIT\"},\"contracts/interfaces/IDexToro.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\nimport \\\"./IERC20.sol\\\";\\r\\n\\r\\ninterface IDexToro is IERC20 {\\r\\n\\r\\n    function mint(address account, uint amount) external;\\r\\n\\r\\n    function burn(uint amount) external;\\r\\n\\r\\n    function setSupplySchedule(address _supplySchedule) external;\\r\\n\\r\\n}\",\"keccak256\":\"0xaccb84c10f78fb4aa0e8022c168425db4b89ecc421f4c8adcf30ae53604e778f\",\"license\":\"MIT\"},\"contracts/interfaces/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity >=0.5.0 <0.9.0;\\r\\n\\r\\n/**\\r\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\r\\n */\\r\\ninterface IERC20 {\\r\\n    /**\\r\\n     * @dev Returns the amount of tokens in existence.\\r\\n     */\\r\\n    function totalSupply() external view returns (uint256);\\r\\n\\r\\n    /**\\r\\n     * @dev Returns the amount of tokens owned by `account`.\\r\\n     */\\r\\n    function balanceOf(address account) external view returns (uint256);\\r\\n\\r\\n    /**\\r\\n     * @dev Moves `amount` tokens from the caller's account to `recipient`.\\r\\n     *\\r\\n     * Returns a boolean value indicating whether the operation succeeded.\\r\\n     *\\r\\n     * Emits a {Transfer} event.\\r\\n     */\\r\\n    function transfer(address recipient, uint256 amount) external returns (bool);\\r\\n\\r\\n    /**\\r\\n     * @dev Returns the remaining number of tokens that `spender` will be\\r\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\r\\n     * zero by default.\\r\\n     *\\r\\n     * This value changes when {approve} or {transferFrom} are called.\\r\\n     */\\r\\n    function allowance(address owner, address spender) external view returns (uint256);\\r\\n\\r\\n    /**\\r\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\r\\n     *\\r\\n     * Returns a boolean value indicating whether the operation succeeded.\\r\\n     *\\r\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\r\\n     * that someone may use both the old and the new allowance by unfortunate\\r\\n     * transaction ordering. One possible solution to mitigate this race\\r\\n     * condition is to first reduce the spender's allowance to 0 and set the\\r\\n     * desired value afterwards:\\r\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\r\\n     *\\r\\n     * Emits an {Approval} event.\\r\\n     */\\r\\n    function approve(address spender, uint256 amount) external returns (bool);\\r\\n\\r\\n    /**\\r\\n     * @dev Moves `amount` tokens from `sender` to `recipient` using the\\r\\n     * allowance mechanism. `amount` is then deducted from the caller's\\r\\n     * allowance.\\r\\n     *\\r\\n     * Returns a boolean value indicating whether the operation succeeded.\\r\\n     *\\r\\n     * Emits a {Transfer} event.\\r\\n     */\\r\\n    function transferFrom(\\r\\n        address sender,\\r\\n        address recipient,\\r\\n        uint256 amount\\r\\n    ) external returns (bool);\\r\\n\\r\\n    /**\\r\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\r\\n     * another (`to`).\\r\\n     *\\r\\n     * Note that `value` may be zero.\\r\\n     */\\r\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\r\\n\\r\\n    /**\\r\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\r\\n     * a call to {approve}. `value` is the new allowance.\\r\\n     */\\r\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\r\\n}\",\"keccak256\":\"0x255cdc9bc95f37f0b6b74e20335f645b1dc6aa029fd4ee619ee2a72d19a61fd5\",\"license\":\"MIT\"},\"contracts/interfaces/IStakingRewards.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\ninterface IStakingRewards {\\r\\n    /// VIEWS\\r\\n    // token state\\r\\n    function totalSupply() external view returns (uint256);\\r\\n    // staking state\\r\\n    function balanceOf(address account) external view returns (uint256);\\r\\n    function escrowedBalanceOf(address account) external view returns (uint256);\\r\\n    function nonEscrowedBalanceOf(address account) external view returns (uint256);\\r\\n    // rewards\\r\\n    function getRewardForDuration() external view returns (uint256);\\r\\n    function rewardPerToken() external view returns (uint256);\\r\\n    function lastTimeRewardApplicable() external view returns (uint256);\\r\\n    function earned(address account) external view returns (uint256);\\r\\n\\r\\n    /// MUTATIVE\\r\\n    // Staking/Unstaking\\r\\n    function stake(uint256 amount) external;\\r\\n    function unstake(uint256 amount) external;\\r\\n    function stakeEscrow(address account, uint256 amount) external;\\r\\n    function unstakeEscrow(address account, uint256 amount) external;\\r\\n    function exit() external;\\r\\n    // claim rewards\\r\\n    function getReward() external;\\r\\n    // settings\\r\\n    function notifyRewardAmount(uint256 reward) external;\\r\\n    function setRewardsDuration(uint256 _rewardsDuration) external;\\r\\n    // pausable\\r\\n    function pauseStakingRewards() external;\\r\\n    function unpauseStakingRewards() external;\\r\\n    // misc.\\r\\n    function recoverERC20(address tokenAddress, uint256 tokenAmount) external;\\r\\n}\\r\\n\",\"keccak256\":\"0x9996ee528d6f91c9c2303142b3bedf023bf7692608e2023c868c89c5b0788ace\",\"license\":\"MIT\"},\"contracts/interfaces/ISupplySchedule.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity >=0.4.24;\\r\\n\\r\\ninterface ISupplySchedule {\\r\\n    // Views\\r\\n    function mintableSupply() external view returns (uint);\\r\\n\\r\\n    function isMintable() external view returns (bool);\\r\\n\\r\\n    // Mutative functions\\r\\n\\r\\n    function mint() external;\\r\\n\\r\\n    function setTreasuryDiversion(uint _treasuryDiversion) external;\\r\\n\\r\\n    function setTradingRewardsDiversion(uint _tradingRewardsDiversion) external;\\r\\n    \\r\\n    function setStakingRewards(address _stakingRewards) external;\\r\\n\\r\\n    function setTradingRewards(address _tradingRewards) external;\\r\\n}\",\"keccak256\":\"0x01083e86d0be9317e5c5085d2576354241a7a1baceec977f7d0043beb8549b27\",\"license\":\"MIT\"},\"contracts/libraries/Math.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\n// Libraries\\r\\nimport \\\"./SafeDecimalMath.sol\\\";\\r\\n\\r\\nlibrary Math {\\r\\n    using SafeDecimalMath for uint;\\r\\n\\r\\n    /**\\r\\n     * @dev Uses \\\"exponentiation by squaring\\\" algorithm where cost is 0(logN)\\r\\n     * vs 0(N) for naive repeated multiplication.\\r\\n     * Calculates x^n with x as fixed-point and n as regular unsigned int.\\r\\n     * Calculates to 18 digits of precision with SafeDecimalMath.unit()\\r\\n     */\\r\\n    function powDecimal(uint x, uint n) internal pure returns (uint) {\\r\\n        // https://mpark.github.io/programming/2014/08/18/exponentiation-by-squaring/\\r\\n\\r\\n        uint result = SafeDecimalMath.unit();\\r\\n        while (n > 0) {\\r\\n            if (n % 2 != 0) {\\r\\n                result = result.multiplyDecimal(x);\\r\\n            }\\r\\n            x = x.multiplyDecimal(x);\\r\\n            n /= 2;\\r\\n        }\\r\\n        return result;\\r\\n    }\\r\\n}\",\"keccak256\":\"0xad2e34209cded8fd1eb656a5edd80f423c4b207e057a89ac2b3705a563468c2e\",\"license\":\"MIT\"},\"contracts/libraries/SafeDecimalMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\nlibrary SafeDecimalMath {\\r\\n    /* Number of decimal places in the representations. */\\r\\n    uint8 public constant decimals = 18;\\r\\n    uint8 public constant highPrecisionDecimals = 27;\\r\\n\\r\\n    /* The number representing 1.0. */\\r\\n    uint256 public constant UNIT = 10**uint256(decimals);\\r\\n\\r\\n    /* The number representing 1.0 for higher fidelity numbers. */\\r\\n    uint256 public constant PRECISE_UNIT = 10**uint256(highPrecisionDecimals);\\r\\n    uint256 private constant UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR =\\r\\n        10**uint256(highPrecisionDecimals - decimals);\\r\\n\\r\\n    /**\\r\\n     * @return Provides an interface to UNIT.\\r\\n     */\\r\\n    function unit() external pure returns (uint256) {\\r\\n        return UNIT;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return Provides an interface to PRECISE_UNIT.\\r\\n     */\\r\\n    function preciseUnit() external pure returns (uint256) {\\r\\n        return PRECISE_UNIT;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return The result of multiplying x and y, interpreting the operands as fixed-point\\r\\n     * decimals.\\r\\n     *\\r\\n     * @dev A unit factor is divided out after the product of x and y is evaluated,\\r\\n     * so that product must be less than 2**256. As this is an integer division,\\r\\n     * the internal division always rounds down. This helps save on gas. Rounding\\r\\n     * is more expensive on gas.\\r\\n     */\\r\\n    function multiplyDecimal(uint256 x, uint256 y)\\r\\n        internal\\r\\n        pure\\r\\n        returns (uint256)\\r\\n    {\\r\\n        /* Divide by UNIT to remove the extra factor introduced by the product. */\\r\\n        return (x * y) / UNIT;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return The result of safely dividing x and y. The return value is a high\\r\\n     * precision decimal.\\r\\n     *\\r\\n     * @dev y is divided after the product of x and the standard precision unit\\r\\n     * is evaluated, so the product of x and UNIT must be less than 2**256. As\\r\\n     * this is an integer division, the result is always rounded down.\\r\\n     * This helps save on gas. Rounding is more expensive on gas.\\r\\n     */\\r\\n    function divideDecimal(uint256 x, uint256 y)\\r\\n        internal\\r\\n        pure\\r\\n        returns (uint256)\\r\\n    {\\r\\n        /* Reintroduce the UNIT factor that will be divided out by y. */\\r\\n        return (x * UNIT) / y;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Convert a standard decimal representation to a high precision one.\\r\\n     */\\r\\n    function decimalToPreciseDecimal(uint256 i)\\r\\n        internal\\r\\n        pure\\r\\n        returns (uint256)\\r\\n    {\\r\\n        return i * UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Convert a high precision decimal to a standard decimal representation.\\r\\n     */\\r\\n    function preciseDecimalToDecimal(uint256 i)\\r\\n        internal\\r\\n        pure\\r\\n        returns (uint256)\\r\\n    {\\r\\n        uint256 quotientTimesTen = i /\\r\\n            (UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR / 10);\\r\\n\\r\\n        if (quotientTimesTen % 10 >= 5) {\\r\\n            quotientTimesTen += 10;\\r\\n        }\\r\\n\\r\\n        return quotientTimesTen / 10;\\r\\n    }\\r\\n\\r\\n    // Computes `a - b`, setting the value to 0 if b > a.\\r\\n    function floorsub(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        return b >= a ? 0 : a - b;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xc7cbfdbd3f6a79c2fdef15dfc0b6e9d42e1457b3c8b0f1ce0133a5ff1be1a0af\",\"license\":\"MIT\"},\"contracts/utils/Owned.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\ncontract Owned {\\r\\n    address public owner;\\r\\n    address public nominatedOwner;\\r\\n\\r\\n    constructor(address _owner) {\\r\\n        require(_owner != address(0), \\\"Owner address cannot be 0\\\");\\r\\n        owner = _owner;\\r\\n        emit OwnerChanged(address(0), _owner);\\r\\n    }\\r\\n\\r\\n    function nominateNewOwner(address _owner) external onlyOwner {\\r\\n        nominatedOwner = _owner;\\r\\n        emit OwnerNominated(_owner);\\r\\n    }\\r\\n\\r\\n    function acceptOwnership() external {\\r\\n        require(msg.sender == nominatedOwner, \\\"You must be nominated before you can accept ownership\\\");\\r\\n        emit OwnerChanged(owner, nominatedOwner);\\r\\n        owner = nominatedOwner;\\r\\n        nominatedOwner = address(0);\\r\\n    }\\r\\n\\r\\n    modifier onlyOwner {\\r\\n        _onlyOwner();\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    function _onlyOwner() private view {\\r\\n        require(msg.sender == owner, \\\"Only the contract owner may perform this action\\\");\\r\\n    }\\r\\n\\r\\n    event OwnerNominated(address newOwner);\\r\\n    event OwnerChanged(address oldOwner, address newOwner);\\r\\n}\\r\\n\",\"keccak256\":\"0x60aea81bf9c266c4906c785ae2108d18650c9a63fc3a9fc10d3f758d040693a9\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a0604052670de0b6b3a76400006007556107d06008556107d06009553480156200002957600080fd5b50604051620018c1380380620018c18339810160408190526200004c9162000152565b816001600160a01b038116620000a85760405162461bcd60e51b815260206004820152601960248201527f4f776e657220616464726573732063616e6e6f74206265203000000000000000604482015260640160405180910390fd5b600080546001600160a01b0319166001600160a01b03831690811782556040805192835260208301919091527fb532073b38c83145e3e5135377a08bf9aab55bc0fd7c1179cd4fb995d2a5159c910160405180910390a150600a80546001600160a01b0319166001600160a01b03929092169190911790555042608081905260055560006006556200018a565b80516001600160a01b03811681146200014d57600080fd5b919050565b600080604083850312156200016657600080fd5b620001718362000135565b9150620001816020840162000135565b90509250929050565b608051611714620001ad600039600081816102ef01526112b001526117146000f3fe608060405234801561001057600080fd5b506004361061025c5760003560e01c80637c06055711610145578063be1ff71e116100bd578063cdb61fdd1161008c578063dbd3a6a711610071578063dbd3a6a7146104a1578063df5a9fc1146104a9578063f9fad053146104b357600080fd5b8063cdb61fdd14610485578063d3bd4bde1461049857600080fd5b8063be1ff71e14610458578063be801f0114610461578063c259c8821461046a578063cc5c095c1461047d57600080fd5b8063a46eddcf11610114578063b3b2bcc0116100f9578063b3b2bcc014610434578063badef30a14610447578063bccdd0301461044f57600080fd5b8063a46eddcf1461040e578063ad18e97e1461042157600080fd5b80637c060557146103d75780638da5cb5b146103df5780639bdd7ac7146103f25780639df92eb7146103fb57600080fd5b806346872a23116101d857806353a47bb7116101a7578063689fccc61161018c578063689fccc6146103a95780636fb83a57146103bc57806379ba5097146103cf57600080fd5b806353a47bb71461036b57806364b87a701461039657600080fd5b806346872a231461032357806346b45af71461032d5780634ae26521146103455780634e070f501461035857600080fd5b8063238fb77f1161022f578063255420641161021457806325542064146102dc57806326f75e05146102ea5780632ff2e9dc1461031157600080fd5b8063238fb77f146102af578063251330f1146102c257600080fd5b80631249c58b146102615780631627540c1461026b5780631de40e491461027e57806322af2bab1461029f575b600080fd5b6102696104c6565b005b6102696102793660046114a3565b61086c565b61028c6648d4a431e5400081565b6040519081526020015b60405180910390f35b61028c6801158e460913d0000081565b6102696102bd3660046114a3565b6108c9565b6102ca600281565b60405160ff9091168152602001610296565b61028c662386f26fc1000081565b61028c7f000000000000000000000000000000000000000000000000000000000000000081565b61028c6a14adf4b7320334b900000081565b61028c6201518081565b610335610975565b6040519015158152602001610296565b6102696103533660046114c0565b61098f565b61028c6103663660046114c0565b610a4b565b60015461037e906001600160a01b031681565b6040516001600160a01b039091168152602001610296565b60035461037e906001600160a01b031681565b6102696103b73660046114c0565b610b1b565b6102696103ca3660046114a3565b610bc7565b610269610c73565b6102ca60d081565b60005461037e906001600160a01b031681565b61028c60075481565b6102696104093660046114c0565b610d65565b61026961041c3660046114a3565b610e11565b600a5461037e906001600160a01b031681565b61028c6104423660046114d9565b610ebd565b61028c610fda565b61028c60085481565b61028c60095481565b61028c60055481565b6102696104783660046114a3565b61100b565b61028c6110b7565b60025461037e906001600160a01b031681565b61028c60065481565b61028c611251565b61028c62093a8081565b60045461037e906001600160a01b031681565b6003546001600160a01b03166105235760405162461bcd60e51b815260206004820152601760248201527f5374616b696e672072657761726473206e6f742073657400000000000000000060448201526064015b60405180910390fd5b6004546001600160a01b031661057b5760405162461bcd60e51b815260206004820152601760248201527f54726164696e672072657761726473206e6f7420736574000000000000000000604482015260640161051a565b60006105856110b7565b9050600081116105d75760405162461bcd60e51b815260206004820152601560248201527f4e6f20737570706c79206973206d696e7461626c650000000000000000000000604482015260640161051a565b6105e081611277565b506000600754826105f19190611511565b90506000612710600854836106069190611524565b6106109190611551565b90506000612710600954846106259190611524565b61062f9190611551565b905060008161063e8486611511565b6106489190611511565b600254600a546040516340c10f1960e01b81526001600160a01b0391821660048201526024810187905292935016906340c10f1990604401600060405180830381600087803b15801561069a57600080fd5b505af11580156106ae573d6000803e3d6000fd5b5050600254600480546040516340c10f1960e01b81526001600160a01b03918216928101929092526024820187905290911692506340c10f199150604401600060405180830381600087803b15801561070657600080fd5b505af115801561071a573d6000803e3d6000fd5b50506002546003546040516340c10f1960e01b81526001600160a01b03918216600482015260248101869052911692506340c10f199150604401600060405180830381600087803b15801561076e57600080fd5b505af1158015610782573d6000803e3d6000fd5b50506003546040517f3c6b16ab000000000000000000000000000000000000000000000000000000008152600481018590526001600160a01b039091169250633c6b16ab9150602401600060405180830381600087803b1580156107e557600080fd5b505af11580156107f9573d6000803e3d6000fd5b50506002546007546040516340c10f1960e01b815233600482015260248101919091526001600160a01b0390911692506340c10f199150604401600060405180830381600087803b15801561084d57600080fd5b505af1158015610861573d6000803e3d6000fd5b505050505050505050565b61087461132c565b600180546001600160a01b0319166001600160a01b0383169081179091556040519081527f906a1c6bd7e3091ea86693dd029a831c19049ce77f1dce2ce0bab1cacbabce22906020015b60405180910390a150565b6108d161132c565b6001600160a01b0381166109275760405162461bcd60e51b815260206004820152601f60248201527f537570706c795363686564756c653a20496e76616c6964204164647265737300604482015260640161051a565b600480546001600160a01b0319166001600160a01b0383169081179091556040519081527f2600f737e588eec1a845714266bf64b2f65c9d3f624e452a2b64611c33108ab0906020016108be565b600062093a80600554426109899190611511565b11905090565b61099761132c565b6801158e460913d00000811115610a165760405162461bcd60e51b815260206004820152603660248201527f537570706c795363686564756c653a205265776172642063616e6e6f7420657860448201527f63656564206d6178206d696e7465722072657761726400000000000000000000606482015260840161051a565b60078190556040518181527f036e0c635f8b7d9314bb6f2a577046108ef0f8b5e3869fbd29fd5a448ed99d30906020016108be565b600080610ad7836648d4a431e5400073__$eafab6a382253e3d4dc0e94de940bead68$__63907af6c06040518163ffffffff1660e01b8152600401602060405180830381865af4158015610aa3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ac79190611565565b610ad19190611511565b906113ae565b90506000610b138260346064610af96a14adf4b7320334b900000060f0611524565b610b039190611551565b610b0d9190611551565b90611469565b949350505050565b610b2361132c565b61271060085482610b34919061157e565b10610b925760405162461bcd60e51b815260206004820152602860248201527f537570706c795363686564756c653a2043616e6e6f74206265206d6f7265207460448201526768616e203130302560c01b606482015260840161051a565b60098190556040518181527f3a6b6f816fda56a9f48af157a6f60d156254bc01c34e04fd31583013fb00a67f906020016108be565b610bcf61132c565b6001600160a01b038116610c255760405162461bcd60e51b815260206004820152601f60248201527f537570706c795363686564756c653a20496e76616c6964204164647265737300604482015260640161051a565b600380546001600160a01b0319166001600160a01b0383169081179091556040519081527f551390b523f91b5d9df0281cbb04db779545fbfa265f5fcde47668f4d4e16006906020016108be565b6001546001600160a01b03163314610cf35760405162461bcd60e51b815260206004820152603560248201527f596f75206d757374206265206e6f6d696e61746564206265666f726520796f7560448201527f2063616e20616363657074206f776e6572736869700000000000000000000000606482015260840161051a565b600054600154604080516001600160a01b0393841681529290911660208301527fb532073b38c83145e3e5135377a08bf9aab55bc0fd7c1179cd4fb995d2a5159c910160405180910390a160018054600080546001600160a01b03199081166001600160a01b03841617909155169055565b610d6d61132c565b61271060095482610d7e919061157e565b10610ddc5760405162461bcd60e51b815260206004820152602860248201527f537570706c795363686564756c653a2043616e6e6f74206265206d6f7265207460448201526768616e203130302560c01b606482015260840161051a565b60088190556040518181527f57a9cd79e547e62257530ed181309acb795c4e6aab927735a3e2afe2ac4d9309906020016108be565b610e1961132c565b6001600160a01b038116610e6f5760405162461bcd60e51b815260206004820152601c60248201527f537570706c795363686564756c653a205a65726f204164647265737300000000604482015260640161051a565b600a80546001600160a01b0319166001600160a01b0383169081179091556040519081527fd780e06c55efd6b3157e8c26704d2fd7bd2750bd9d0e71d2e5f675572dfad7a2906020016108be565b600080610f4d83610ed66034662386f26fc10000611551565b73__$eafab6a382253e3d4dc0e94de940bead68$__63907af6c06040518163ffffffff1660e01b8152600401602060405180830381865af4158015610f1f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f439190611565565b610ad1919061157e565b9050610fd073__$eafab6a382253e3d4dc0e94de940bead68$__63907af6c06040518163ffffffff1660e01b8152600401602060405180830381865af4158015610f9b573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610fbf9190611565565b610fc99083611511565b8590611469565b9150505b92915050565b60346064610ff46a14adf4b7320334b900000060f0611524565b610ffe9190611551565b6110089190611551565b81565b61101361132c565b6001600160a01b0381166110695760405162461bcd60e51b815260206004820152601360248201527f416464726573732063616e6e6f74206265203000000000000000000000000000604482015260640161051a565b600280546001600160a01b0319166001600160a01b0383169081179091556040519081527feb83b1dd8b810073d77f64dffa39b1fea87c13dc8b2138b43d72633d9ef32df0906020016108be565b6000806110c2610975565b6110cb57919050565b60006110d5611251565b6006549091505b811561124957806110ec81611591565b915050600281101561114457603460646111126a14adf4b7320334b900000060f0611524565b61111c9190611551565b6111269190611551565b611130908461157e565b92508161113c816115aa565b9250506110dc565b60d0811161119157600061115a600160026115c1565b6111679060ff1683611511565b905061117281610a4b565b61117c908561157e565b935082611188816115aa565b935050506110dc565b600254604080517f18160ddd00000000000000000000000000000000000000000000000000000000815290516000926001600160a01b0316916318160ddd9160048083019260209291908290030181865afa1580156111f4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906112189190611565565b90506000611226858361157e565b90506112328185610ebd565b61123c908661157e565b94506000935050506110dc565b509092915050565b600080600554426112629190611511565b905061127162093a8082611551565b91505090565b600080611282611251565b905080600654611292919061157e565b600681905562015180906112aa9062093a8090611524565b6112d4907f000000000000000000000000000000000000000000000000000000000000000061157e565b6112de919061157e565b6005819055604080518581526020810184905280820192909252517feae287c62f1ff4911334dee03f631d5dded5284b1b03ea7bc1d6282916c7249f9181900360600190a150600192915050565b6000546001600160a01b031633146113ac5760405162461bcd60e51b815260206004820152602f60248201527f4f6e6c792074686520636f6e7472616374206f776e6572206d6179207065726660448201527f6f726d207468697320616374696f6e0000000000000000000000000000000000606482015260840161051a565b565b60008073__$eafab6a382253e3d4dc0e94de940bead68$__63907af6c06040518163ffffffff1660e01b8152600401602060405180830381865af41580156113fa573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061141e9190611565565b90505b8215611462576114326002846115da565b15611444576114418185611469565b90505b61144e8480611469565b935061145b600284611551565b9250611421565b9392505050565b60006114776012600a6116d2565b6114818385611524565b6114629190611551565b6001600160a01b03811681146114a057600080fd5b50565b6000602082840312156114b557600080fd5b81356114628161148b565b6000602082840312156114d257600080fd5b5035919050565b600080604083850312156114ec57600080fd5b50508035926020909101359150565b634e487b7160e01b600052601160045260246000fd5b81810381811115610fd457610fd46114fb565b8082028115828204841417610fd457610fd46114fb565b634e487b7160e01b600052601260045260246000fd5b6000826115605761156061153b565b500490565b60006020828403121561157757600080fd5b5051919050565b80820180821115610fd457610fd46114fb565b6000600182016115a3576115a36114fb565b5060010190565b6000816115b9576115b96114fb565b506000190190565b60ff8281168282160390811115610fd457610fd46114fb565b6000826115e9576115e961153b565b500690565b600181815b8085111561162957816000190482111561160f5761160f6114fb565b8085161561161c57918102915b93841c93908002906115f3565b509250929050565b60008261164057506001610fd4565b8161164d57506000610fd4565b8160018114611663576002811461166d57611689565b6001915050610fd4565b60ff84111561167e5761167e6114fb565b50506001821b610fd4565b5060208310610133831016604e8410600b84101617156116ac575081810a610fd4565b6116b683836115ee565b80600019048211156116ca576116ca6114fb565b029392505050565b6000611462838361163156fea2646970667358221220c2d50644172afc47f254c15b58d1c90b5007d16b317e38ac0d2f210af8aac5a364736f6c63430008130033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061025c5760003560e01c80637c06055711610145578063be1ff71e116100bd578063cdb61fdd1161008c578063dbd3a6a711610071578063dbd3a6a7146104a1578063df5a9fc1146104a9578063f9fad053146104b357600080fd5b8063cdb61fdd14610485578063d3bd4bde1461049857600080fd5b8063be1ff71e14610458578063be801f0114610461578063c259c8821461046a578063cc5c095c1461047d57600080fd5b8063a46eddcf11610114578063b3b2bcc0116100f9578063b3b2bcc014610434578063badef30a14610447578063bccdd0301461044f57600080fd5b8063a46eddcf1461040e578063ad18e97e1461042157600080fd5b80637c060557146103d75780638da5cb5b146103df5780639bdd7ac7146103f25780639df92eb7146103fb57600080fd5b806346872a23116101d857806353a47bb7116101a7578063689fccc61161018c578063689fccc6146103a95780636fb83a57146103bc57806379ba5097146103cf57600080fd5b806353a47bb71461036b57806364b87a701461039657600080fd5b806346872a231461032357806346b45af71461032d5780634ae26521146103455780634e070f501461035857600080fd5b8063238fb77f1161022f578063255420641161021457806325542064146102dc57806326f75e05146102ea5780632ff2e9dc1461031157600080fd5b8063238fb77f146102af578063251330f1146102c257600080fd5b80631249c58b146102615780631627540c1461026b5780631de40e491461027e57806322af2bab1461029f575b600080fd5b6102696104c6565b005b6102696102793660046114a3565b61086c565b61028c6648d4a431e5400081565b6040519081526020015b60405180910390f35b61028c6801158e460913d0000081565b6102696102bd3660046114a3565b6108c9565b6102ca600281565b60405160ff9091168152602001610296565b61028c662386f26fc1000081565b61028c7f000000000000000000000000000000000000000000000000000000000000000081565b61028c6a14adf4b7320334b900000081565b61028c6201518081565b610335610975565b6040519015158152602001610296565b6102696103533660046114c0565b61098f565b61028c6103663660046114c0565b610a4b565b60015461037e906001600160a01b031681565b6040516001600160a01b039091168152602001610296565b60035461037e906001600160a01b031681565b6102696103b73660046114c0565b610b1b565b6102696103ca3660046114a3565b610bc7565b610269610c73565b6102ca60d081565b60005461037e906001600160a01b031681565b61028c60075481565b6102696104093660046114c0565b610d65565b61026961041c3660046114a3565b610e11565b600a5461037e906001600160a01b031681565b61028c6104423660046114d9565b610ebd565b61028c610fda565b61028c60085481565b61028c60095481565b61028c60055481565b6102696104783660046114a3565b61100b565b61028c6110b7565b60025461037e906001600160a01b031681565b61028c60065481565b61028c611251565b61028c62093a8081565b60045461037e906001600160a01b031681565b6003546001600160a01b03166105235760405162461bcd60e51b815260206004820152601760248201527f5374616b696e672072657761726473206e6f742073657400000000000000000060448201526064015b60405180910390fd5b6004546001600160a01b031661057b5760405162461bcd60e51b815260206004820152601760248201527f54726164696e672072657761726473206e6f7420736574000000000000000000604482015260640161051a565b60006105856110b7565b9050600081116105d75760405162461bcd60e51b815260206004820152601560248201527f4e6f20737570706c79206973206d696e7461626c650000000000000000000000604482015260640161051a565b6105e081611277565b506000600754826105f19190611511565b90506000612710600854836106069190611524565b6106109190611551565b90506000612710600954846106259190611524565b61062f9190611551565b905060008161063e8486611511565b6106489190611511565b600254600a546040516340c10f1960e01b81526001600160a01b0391821660048201526024810187905292935016906340c10f1990604401600060405180830381600087803b15801561069a57600080fd5b505af11580156106ae573d6000803e3d6000fd5b5050600254600480546040516340c10f1960e01b81526001600160a01b03918216928101929092526024820187905290911692506340c10f199150604401600060405180830381600087803b15801561070657600080fd5b505af115801561071a573d6000803e3d6000fd5b50506002546003546040516340c10f1960e01b81526001600160a01b03918216600482015260248101869052911692506340c10f199150604401600060405180830381600087803b15801561076e57600080fd5b505af1158015610782573d6000803e3d6000fd5b50506003546040517f3c6b16ab000000000000000000000000000000000000000000000000000000008152600481018590526001600160a01b039091169250633c6b16ab9150602401600060405180830381600087803b1580156107e557600080fd5b505af11580156107f9573d6000803e3d6000fd5b50506002546007546040516340c10f1960e01b815233600482015260248101919091526001600160a01b0390911692506340c10f199150604401600060405180830381600087803b15801561084d57600080fd5b505af1158015610861573d6000803e3d6000fd5b505050505050505050565b61087461132c565b600180546001600160a01b0319166001600160a01b0383169081179091556040519081527f906a1c6bd7e3091ea86693dd029a831c19049ce77f1dce2ce0bab1cacbabce22906020015b60405180910390a150565b6108d161132c565b6001600160a01b0381166109275760405162461bcd60e51b815260206004820152601f60248201527f537570706c795363686564756c653a20496e76616c6964204164647265737300604482015260640161051a565b600480546001600160a01b0319166001600160a01b0383169081179091556040519081527f2600f737e588eec1a845714266bf64b2f65c9d3f624e452a2b64611c33108ab0906020016108be565b600062093a80600554426109899190611511565b11905090565b61099761132c565b6801158e460913d00000811115610a165760405162461bcd60e51b815260206004820152603660248201527f537570706c795363686564756c653a205265776172642063616e6e6f7420657860448201527f63656564206d6178206d696e7465722072657761726400000000000000000000606482015260840161051a565b60078190556040518181527f036e0c635f8b7d9314bb6f2a577046108ef0f8b5e3869fbd29fd5a448ed99d30906020016108be565b600080610ad7836648d4a431e5400073__$eafab6a382253e3d4dc0e94de940bead68$__63907af6c06040518163ffffffff1660e01b8152600401602060405180830381865af4158015610aa3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ac79190611565565b610ad19190611511565b906113ae565b90506000610b138260346064610af96a14adf4b7320334b900000060f0611524565b610b039190611551565b610b0d9190611551565b90611469565b949350505050565b610b2361132c565b61271060085482610b34919061157e565b10610b925760405162461bcd60e51b815260206004820152602860248201527f537570706c795363686564756c653a2043616e6e6f74206265206d6f7265207460448201526768616e203130302560c01b606482015260840161051a565b60098190556040518181527f3a6b6f816fda56a9f48af157a6f60d156254bc01c34e04fd31583013fb00a67f906020016108be565b610bcf61132c565b6001600160a01b038116610c255760405162461bcd60e51b815260206004820152601f60248201527f537570706c795363686564756c653a20496e76616c6964204164647265737300604482015260640161051a565b600380546001600160a01b0319166001600160a01b0383169081179091556040519081527f551390b523f91b5d9df0281cbb04db779545fbfa265f5fcde47668f4d4e16006906020016108be565b6001546001600160a01b03163314610cf35760405162461bcd60e51b815260206004820152603560248201527f596f75206d757374206265206e6f6d696e61746564206265666f726520796f7560448201527f2063616e20616363657074206f776e6572736869700000000000000000000000606482015260840161051a565b600054600154604080516001600160a01b0393841681529290911660208301527fb532073b38c83145e3e5135377a08bf9aab55bc0fd7c1179cd4fb995d2a5159c910160405180910390a160018054600080546001600160a01b03199081166001600160a01b03841617909155169055565b610d6d61132c565b61271060095482610d7e919061157e565b10610ddc5760405162461bcd60e51b815260206004820152602860248201527f537570706c795363686564756c653a2043616e6e6f74206265206d6f7265207460448201526768616e203130302560c01b606482015260840161051a565b60088190556040518181527f57a9cd79e547e62257530ed181309acb795c4e6aab927735a3e2afe2ac4d9309906020016108be565b610e1961132c565b6001600160a01b038116610e6f5760405162461bcd60e51b815260206004820152601c60248201527f537570706c795363686564756c653a205a65726f204164647265737300000000604482015260640161051a565b600a80546001600160a01b0319166001600160a01b0383169081179091556040519081527fd780e06c55efd6b3157e8c26704d2fd7bd2750bd9d0e71d2e5f675572dfad7a2906020016108be565b600080610f4d83610ed66034662386f26fc10000611551565b73__$eafab6a382253e3d4dc0e94de940bead68$__63907af6c06040518163ffffffff1660e01b8152600401602060405180830381865af4158015610f1f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f439190611565565b610ad1919061157e565b9050610fd073__$eafab6a382253e3d4dc0e94de940bead68$__63907af6c06040518163ffffffff1660e01b8152600401602060405180830381865af4158015610f9b573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610fbf9190611565565b610fc99083611511565b8590611469565b9150505b92915050565b60346064610ff46a14adf4b7320334b900000060f0611524565b610ffe9190611551565b6110089190611551565b81565b61101361132c565b6001600160a01b0381166110695760405162461bcd60e51b815260206004820152601360248201527f416464726573732063616e6e6f74206265203000000000000000000000000000604482015260640161051a565b600280546001600160a01b0319166001600160a01b0383169081179091556040519081527feb83b1dd8b810073d77f64dffa39b1fea87c13dc8b2138b43d72633d9ef32df0906020016108be565b6000806110c2610975565b6110cb57919050565b60006110d5611251565b6006549091505b811561124957806110ec81611591565b915050600281101561114457603460646111126a14adf4b7320334b900000060f0611524565b61111c9190611551565b6111269190611551565b611130908461157e565b92508161113c816115aa565b9250506110dc565b60d0811161119157600061115a600160026115c1565b6111679060ff1683611511565b905061117281610a4b565b61117c908561157e565b935082611188816115aa565b935050506110dc565b600254604080517f18160ddd00000000000000000000000000000000000000000000000000000000815290516000926001600160a01b0316916318160ddd9160048083019260209291908290030181865afa1580156111f4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906112189190611565565b90506000611226858361157e565b90506112328185610ebd565b61123c908661157e565b94506000935050506110dc565b509092915050565b600080600554426112629190611511565b905061127162093a8082611551565b91505090565b600080611282611251565b905080600654611292919061157e565b600681905562015180906112aa9062093a8090611524565b6112d4907f000000000000000000000000000000000000000000000000000000000000000061157e565b6112de919061157e565b6005819055604080518581526020810184905280820192909252517feae287c62f1ff4911334dee03f631d5dded5284b1b03ea7bc1d6282916c7249f9181900360600190a150600192915050565b6000546001600160a01b031633146113ac5760405162461bcd60e51b815260206004820152602f60248201527f4f6e6c792074686520636f6e7472616374206f776e6572206d6179207065726660448201527f6f726d207468697320616374696f6e0000000000000000000000000000000000606482015260840161051a565b565b60008073__$eafab6a382253e3d4dc0e94de940bead68$__63907af6c06040518163ffffffff1660e01b8152600401602060405180830381865af41580156113fa573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061141e9190611565565b90505b8215611462576114326002846115da565b15611444576114418185611469565b90505b61144e8480611469565b935061145b600284611551565b9250611421565b9392505050565b60006114776012600a6116d2565b6114818385611524565b6114629190611551565b6001600160a01b03811681146114a057600080fd5b50565b6000602082840312156114b557600080fd5b81356114628161148b565b6000602082840312156114d257600080fd5b5035919050565b600080604083850312156114ec57600080fd5b50508035926020909101359150565b634e487b7160e01b600052601160045260246000fd5b81810381811115610fd457610fd46114fb565b8082028115828204841417610fd457610fd46114fb565b634e487b7160e01b600052601260045260246000fd5b6000826115605761156061153b565b500490565b60006020828403121561157757600080fd5b5051919050565b80820180821115610fd457610fd46114fb565b6000600182016115a3576115a36114fb565b5060010190565b6000816115b9576115b96114fb565b506000190190565b60ff8281168282160390811115610fd457610fd46114fb565b6000826115e9576115e961153b565b500690565b600181815b8085111561162957816000190482111561160f5761160f6114fb565b8085161561161c57918102915b93841c93908002906115f3565b509250929050565b60008261164057506001610fd4565b8161164d57506000610fd4565b8160018114611663576002811461166d57611689565b6001915050610fd4565b60ff84111561167e5761167e6114fb565b50506001821b610fd4565b5060208310610133831016604e8410600b84101617156116ac575081810a610fd4565b6116b683836115ee565b80600019048211156116ca576116ca6114fb565b029392505050565b6000611462838361163156fea2646970667358221220c2d50644172afc47f254c15b58d1c90b5007d16b317e38ac0d2f210af8aac5a364736f6c63430008130033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "isMintable()": {
+        "returns": {
+          "_0": "boolean whether the MINT_PERIOD_DURATION (7 days) has passed since the lastMintEvent. "
+        }
+      },
+      "mintableSupply()": {
+        "returns": {
+          "_0": "The amount of DTORO mintable for the inflationary supply"
+        }
+      },
+      "setMinterReward(uint256)": {
+        "params": {
+          "amount": "the amount of DTORO to reward the minter. "
+        }
+      },
+      "setTreasuryDAO(address)": {
+        "details": "only owner may change address"
+      },
+      "terminalInflationSupply(uint256,uint256)": {
+        "details": "Weekly compound rate based on number of weeks",
+        "returns": {
+          "_0": "A unit amount of terminal inflation supply"
+        }
+      },
+      "tokenDecaySupplyForWeek(uint256)": {
+        "details": "New token supply reduces by the decay rate each week calculated as supply = INITIAL_WEEKLY_SUPPLY * ()",
+        "returns": {
+          "_0": "A unit amount of decaying inflationary supply from the INITIAL_WEEKLY_SUPPLY"
+        }
+      },
+      "weeksSinceLastIssuance()": {
+        "details": "Take timeDiff in seconds (Dividend) and MINT_PERIOD_DURATION as (Divisor)",
+        "returns": {
+          "_0": "Calculate the numberOfWeeks since last mint rounded down to 1 week"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "DexToroUpdated(address)": {
+        "notice": "Emitted when setDexToro is called changing the DexToro Proxy address*"
+      },
+      "MinterRewardUpdated(uint256)": {
+        "notice": "Emitted when the DTORO minter reward amount is updated*"
+      },
+      "StakingRewardsUpdated(address)": {
+        "notice": "Emitted when StakingRewards is changed*"
+      },
+      "SupplyMinted(uint256,uint256,uint256)": {
+        "notice": "Emitted when the inflationary supply is minted*"
+      },
+      "TradingRewardsDiversionUpdated(uint256)": {
+        "notice": "Emitted when trading rewards inflation share is changed*"
+      },
+      "TradingRewardsUpdated(address)": {
+        "notice": "Emitted when TradingRewards is changed*"
+      },
+      "TreasuryDAOSet(address)": {
+        "notice": "Emitted when treasuryDAO address is changed*"
+      },
+      "TreasuryDiversionUpdated(uint256)": {
+        "notice": "Emitted when treasury inflation share is changed*"
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "mint()": {
+        "notice": "Mints new inflationary supply weekly New DTORO is distributed between the minter, treasury, and StakingRewards contract "
+      },
+      "setDexToro(address)": {
+        "notice": "Set the DexToro should it ever change. SupplySchedule requires DexToro address as it has the authority to record mint event. "
+      },
+      "setMinterReward(uint256)": {
+        "notice": "Sets the reward amount of DTORO for the caller of the public function DexToro.mint(). This incentivises anyone to mint the inflationary supply and the mintr Reward will be deducted from the inflationary supply and sent to the caller."
+      },
+      "setTreasuryDAO(address)": {
+        "notice": "set treasuryDAO address"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 17258,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 17260,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "nominatedOwner",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 13506,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "dextoro",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_contract(IDexToro)14823"
+      },
+      {
+        "astId": 13509,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "stakingRewards",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_contract(IStakingRewards)15914"
+      },
+      {
+        "astId": 13511,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "tradingRewards",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_address"
+      },
+      {
+        "astId": 13513,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "lastMintEvent",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 13515,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "weekCounter",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 13518,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "minterReward",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 13558,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "treasuryDiversion",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 13561,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "tradingRewardsDiversion",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 13563,
+        "contract": "contracts/SupplySchedule.sol:SupplySchedule",
+        "label": "treasuryDAO",
+        "offset": 0,
+        "slot": "10",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IDexToro)14823": {
+        "encoding": "inplace",
+        "label": "contract IDexToro",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IStakingRewards)15914": {
+        "encoding": "inplace",
+        "label": "contract IStakingRewards",
+        "numberOfBytes": "20"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

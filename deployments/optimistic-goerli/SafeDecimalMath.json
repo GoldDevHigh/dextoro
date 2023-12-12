@@ -1,0 +1,113 @@
+{
+  "address": "0xA9a1fAfE248e1f3832C9D171737911C1bf5C0992",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "PRECISE_UNIT",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "UNIT",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "highPrecisionDecimals",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "preciseUnit",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unit",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "6f79d3733b7e9dcc5d3a8e37b3ee8002",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"PRECISE_UNIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"UNIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"highPrecisionDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"preciseUnit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"preciseUnit()\":{\"returns\":{\"_0\":\"Provides an interface to PRECISE_UNIT.\"}},\"unit()\":{\"returns\":{\"_0\":\"Provides an interface to UNIT.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/libraries/SafeDecimalMath.sol\":\"SafeDecimalMath\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/libraries/SafeDecimalMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\n// https://docs.synthetix.io/contracts/source/libraries/safedecimalmath\\r\\nlibrary SafeDecimalMath {\\r\\n    /* Number of decimal places in the representations. */\\r\\n    uint8 public constant decimals = 18;\\r\\n    uint8 public constant highPrecisionDecimals = 27;\\r\\n\\r\\n    /* The number representing 1.0. */\\r\\n    uint256 public constant UNIT = 10**uint256(decimals);\\r\\n\\r\\n    /* The number representing 1.0 for higher fidelity numbers. */\\r\\n    uint256 public constant PRECISE_UNIT = 10**uint256(highPrecisionDecimals);\\r\\n    uint256 private constant UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR =\\r\\n        10**uint256(highPrecisionDecimals - decimals);\\r\\n\\r\\n    /**\\r\\n     * @return Provides an interface to UNIT.\\r\\n     */\\r\\n    function unit() external pure returns (uint256) {\\r\\n        return UNIT;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return Provides an interface to PRECISE_UNIT.\\r\\n     */\\r\\n    function preciseUnit() external pure returns (uint256) {\\r\\n        return PRECISE_UNIT;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return The result of multiplying x and y, interpreting the operands as fixed-point\\r\\n     * decimals.\\r\\n     *\\r\\n     * @dev A unit factor is divided out after the product of x and y is evaluated,\\r\\n     * so that product must be less than 2**256. As this is an integer division,\\r\\n     * the internal division always rounds down. This helps save on gas. Rounding\\r\\n     * is more expensive on gas.\\r\\n     */\\r\\n    function multiplyDecimal(uint256 x, uint256 y)\\r\\n        internal\\r\\n        pure\\r\\n        returns (uint256)\\r\\n    {\\r\\n        /* Divide by UNIT to remove the extra factor introduced by the product. */\\r\\n        return (x * y) / UNIT;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @return The result of safely dividing x and y. The return value is a high\\r\\n     * precision decimal.\\r\\n     *\\r\\n     * @dev y is divided after the product of x and the standard precision unit\\r\\n     * is evaluated, so the product of x and UNIT must be less than 2**256. As\\r\\n     * this is an integer division, the result is always rounded down.\\r\\n     * This helps save on gas. Rounding is more expensive on gas.\\r\\n     */\\r\\n    function divideDecimal(uint256 x, uint256 y)\\r\\n        internal\\r\\n        pure\\r\\n        returns (uint256)\\r\\n    {\\r\\n        /* Reintroduce the UNIT factor that will be divided out by y. */\\r\\n        return (x * UNIT) / y;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Convert a standard decimal representation to a high precision one.\\r\\n     */\\r\\n    function decimalToPreciseDecimal(uint256 i)\\r\\n        internal\\r\\n        pure\\r\\n        returns (uint256)\\r\\n    {\\r\\n        return i * UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Convert a high precision decimal to a standard decimal representation.\\r\\n     */\\r\\n    function preciseDecimalToDecimal(uint256 i)\\r\\n        internal\\r\\n        pure\\r\\n        returns (uint256)\\r\\n    {\\r\\n        uint256 quotientTimesTen = i /\\r\\n            (UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR / 10);\\r\\n\\r\\n        if (quotientTimesTen % 10 >= 5) {\\r\\n            quotientTimesTen += 10;\\r\\n        }\\r\\n\\r\\n        return quotientTimesTen / 10;\\r\\n    }\\r\\n\\r\\n    // Computes `a - b`, setting the value to 0 if b > a.\\r\\n    function floorsub(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        return b >= a ? 0 : a - b;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x8d9e85fffb74d55092b2be675ab4e3960bebf784fa4b4496a66297026202be8a\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x6103d5610053600b82828239805160001a607314610046577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061006c5760003560e01c8063313ce56714610071578063864029e71461008f578063907af6c0146100ad5780639d8e2177146100cb578063d5e5e6e6146100e9578063def4419d14610107575b600080fd5b610079610125565b60405161008691906101a3565b60405180910390f35b61009761012a565b6040516100a491906101d7565b60405180910390f35b6100b561013e565b6040516100c291906101d7565b60405180910390f35b6100d3610156565b6040516100e091906101d7565b60405180910390f35b6100f161016a565b6040516100fe91906101d7565b60405180910390f35b61010f610182565b60405161011c91906101a3565b60405180910390f35b601281565b601b60ff16600a61013b9190610354565b81565b6000601260ff16600a6101519190610354565b905090565b601260ff16600a6101679190610354565b81565b6000601b60ff16600a61017d9190610354565b905090565b601b81565b600060ff82169050919050565b61019d81610187565b82525050565b60006020820190506101b86000830184610194565b92915050565b6000819050919050565b6101d1816101be565b82525050565b60006020820190506101ec60008301846101c8565b92915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b60008160011c9050919050565b6000808291508390505b600185111561027857808604811115610254576102536101f2565b5b60018516156102635780820291505b808102905061027185610221565b9450610238565b94509492505050565b600082610291576001905061034d565b8161029f576000905061034d565b81600181146102b557600281146102bf576102ee565b600191505061034d565b60ff8411156102d1576102d06101f2565b5b8360020a9150848211156102e8576102e76101f2565b5b5061034d565b5060208310610133831016604e8410600b84101617156103235782820a90508381111561031e5761031d6101f2565b5b61034d565b610330848484600161022e565b92509050818404811115610347576103466101f2565b5b81810290505b9392505050565b600061035f826101be565b915061036a836101be565b92506103977fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8484610281565b90509291505056fea264697066735822122076482140d9d3113158df21c76903571a35346a6895e2b23fba2287cc24f2405b64736f6c63430008130033",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361061006c5760003560e01c8063313ce56714610071578063864029e71461008f578063907af6c0146100ad5780639d8e2177146100cb578063d5e5e6e6146100e9578063def4419d14610107575b600080fd5b610079610125565b60405161008691906101a3565b60405180910390f35b61009761012a565b6040516100a491906101d7565b60405180910390f35b6100b561013e565b6040516100c291906101d7565b60405180910390f35b6100d3610156565b6040516100e091906101d7565b60405180910390f35b6100f161016a565b6040516100fe91906101d7565b60405180910390f35b61010f610182565b60405161011c91906101a3565b60405180910390f35b601281565b601b60ff16600a61013b9190610354565b81565b6000601260ff16600a6101519190610354565b905090565b601260ff16600a6101679190610354565b81565b6000601b60ff16600a61017d9190610354565b905090565b601b81565b600060ff82169050919050565b61019d81610187565b82525050565b60006020820190506101b86000830184610194565b92915050565b6000819050919050565b6101d1816101be565b82525050565b60006020820190506101ec60008301846101c8565b92915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b60008160011c9050919050565b6000808291508390505b600185111561027857808604811115610254576102536101f2565b5b60018516156102635780820291505b808102905061027185610221565b9450610238565b94509492505050565b600082610291576001905061034d565b8161029f576000905061034d565b81600181146102b557600281146102bf576102ee565b600191505061034d565b60ff8411156102d1576102d06101f2565b5b8360020a9150848211156102e8576102e76101f2565b5b5061034d565b5060208310610133831016604e8410600b84101617156103235782820a90508381111561031e5761031d6101f2565b5b61034d565b610330848484600161022e565b92509050818404811115610347576103466101f2565b5b81810290505b9392505050565b600061035f826101be565b915061036a836101be565b92506103977fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8484610281565b90509291505056fea264697066735822122076482140d9d3113158df21c76903571a35346a6895e2b23fba2287cc24f2405b64736f6c63430008130033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "preciseUnit()": {
+        "returns": {
+          "_0": "Provides an interface to PRECISE_UNIT."
+        }
+      },
+      "unit()": {
+        "returns": {
+          "_0": "Provides an interface to UNIT."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
