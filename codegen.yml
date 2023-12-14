@@ -1,0 +1,46 @@
+# Run codegen using: npm run generate
+# Make sure schema endpoint is accessible!
+schema:
+    - https://api.thegraph.com/subgraphs/name/graphthe/optimism-perps
+documents:
+    - >
+        fragment StatsBody on FuturesStat {
+          account
+          pnl
+          pnlWithFeesPaid
+          liquidations
+          totalTrades
+          totalVolume
+        }
+
+    - >
+        query leaderboardStats($account: String!, $searchTerm: String!) {
+          top: futuresStats(
+                  where: { smartMarginVolume_gt: "0" }
+                  orderBy: pnlWithFeesPaid
+                  orderDirection: desc
+                  first: 100
+          ) {
+                  ...StatsBody
+          }
+          bottom: futuresStats(
+                  where: { smartMarginVolume_gt: "0" }
+                  orderBy: pnlWithFeesPaid
+                  orderDirection: asc
+                  first: 100
+          ) {
+                  ...StatsBody
+          }
+          wallet: futuresStats(where: { account: $account }) {
+                  ...StatsBody
+          }
+          search: futuresStats(where: { account_contains: $searchTerm }) {
+                  ...StatsBody
+          }
+
+generates:
+    ./script/src/qntypes.ts:
+        plugins:
+            - typescript
+            - typescript-operations
+            - typescript-graphql-request
