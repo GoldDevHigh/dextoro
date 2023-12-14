@@ -1,5 +1,6 @@
 import { request, gql } from "graphql-request";
 import { ethers } from "hardhat";
+import stakerDistribution from "./distribution/staker-distribution.json";
 
 async function main() {
 	const response = (
@@ -49,13 +50,15 @@ async function main() {
 		totalVolume: number;
 		account: string;
 	}[];
-
 	const pool2PurchaseAmounts = response.map(
 		({ feesPaid, totalVolume, account }) => {
-			const rewars_score = feesPaid * totalVolume;
+
+			const stakerValue = stakerDistribution.find((staker) => staker.address === account)
+			const rewards_score = feesPaid * Number(stakerValue?.earnings);
+
 			return {
 				address: ethers.utils.getAddress(account),
-				amount: rewars_score,
+				amount: rewards_score,
 			};
 		}
 	);
